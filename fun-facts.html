@@ -35,7 +35,10 @@ body {
     border: 1px solid #2B2607;
     background: #FFFCF0;
 
+    color: #2B2607;
+
     font-size: 22px;
+
     cursor: pointer;
 }
 
@@ -84,6 +87,7 @@ body {
 
 .menu-label {
     font-size: 15px;
+
     margin-top: 25px;
     margin-bottom: 5px;
 }
@@ -94,6 +98,7 @@ body {
 
 .page {
     max-width: 1000px;
+
     margin: 0 auto;
 
     padding: 90px 25px 70px;
@@ -101,17 +106,21 @@ body {
 
 .header {
     text-align: center;
+
     margin-bottom: 55px;
 }
 
 .header h1 {
     font-size: 40px;
+
     font-weight: normal;
+
     margin: 0 0 12px;
 }
 
 .header p {
     font-size: 15px;
+
     font-style: italic;
 }
 
@@ -131,12 +140,15 @@ body {
 
 .section-number {
     font-size: 12px;
+
     letter-spacing: 2px;
+
     opacity: 0.65;
 }
 
 .section-heading h2 {
     font-size: 28px;
+
     font-weight: normal;
 
     margin: 5px 0 8px;
@@ -144,6 +156,7 @@ body {
 
 .section-heading p {
     font-size: 13px;
+
     font-style: italic;
 
     margin: 0;
@@ -176,9 +189,11 @@ body {
     padding: 24px 20px;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
@@ -189,12 +204,16 @@ body {
 }
 
 .fact-card:hover {
-    transform: translateY(-3px) rotate(-0.5deg);
+    transform:
+        translateY(-3px)
+        rotate(-0.5deg);
+
     background: #fdf9ea;
 }
 
 .fact-number {
     font-size: 11px;
+
     opacity: 0.55;
 
     margin-bottom: 12px;
@@ -202,11 +221,12 @@ body {
 
 .fact-text {
     font-size: 16px;
+
     line-height: 1.5;
 }
 
 /* =========================
-   FLIP CARD
+   FLIP CARDS
 ========================= */
 
 .flip-card {
@@ -230,7 +250,8 @@ body {
 }
 
 .flip-card.flipped .flip-inner {
-    transform: rotateY(180deg);
+    transform:
+        rotateY(180deg);
 }
 
 .flip-front,
@@ -253,6 +274,7 @@ body {
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
@@ -263,7 +285,8 @@ body {
 }
 
 .flip-back {
-    transform: rotateY(180deg);
+    transform:
+        rotateY(180deg);
 
     background: #fffdf5;
 }
@@ -288,12 +311,8 @@ body {
     opacity: 0.65;
 }
 
-.flip-back .fact-text {
-    font-size: 16px;
-}
-
 /* =========================
-   LOVE SPECIAL CARD
+   SPECIAL LOVE CARD
 ========================= */
 
 .special-love {
@@ -342,6 +361,7 @@ body {
 
 .quiz-heading h2 {
     font-size: 28px;
+
     font-weight: normal;
 
     margin-bottom: 10px;
@@ -349,8 +369,13 @@ body {
 
 .quiz-heading p {
     font-size: 13px;
+
     font-style: italic;
 }
+
+/* =========================
+   QUIZ CARD
+========================= */
 
 .quiz-card {
     max-width: 650px;
@@ -371,15 +396,23 @@ body {
 
     opacity: 0.6;
 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .quiz-question {
     text-align: center;
 
-    font-size: 19px;
+    font-size: 20px;
 
     line-height: 1.5;
+
+    min-height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 
     margin-bottom: 25px;
 }
@@ -387,7 +420,8 @@ body {
 .quiz-options {
     display: grid;
 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 10px;
 }
@@ -397,79 +431,147 @@ body {
 
     background: #FFFCF0;
 
-    padding: 14px 10px;
-
-    min-height: 52px;
-
-    font-family: Georgia, "Times New Roman", serif;
-
     color: #2B2607;
 
-    cursor: pointer;
+    padding: 14px 10px;
+
+    min-height: 55px;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     font-size: 14px;
+
+    cursor: pointer;
 
     transition:
         background 0.2s ease,
         transform 0.15s ease;
 }
 
-.quiz-option:hover {
+.quiz-option:hover:not(:disabled) {
     background: #f7f0df;
 
-    transform: translateY(-2px);
+    transform:
+        translateY(-2px);
 }
 
 .quiz-option:disabled {
     cursor: default;
 }
 
+/* =========================
+   QUIZ RESULT
+========================= */
+
 .quiz-result {
     text-align: center;
 
-    margin-top: 25px;
+    margin-top: 22px;
 
-    min-height: 50px;
+    min-height: 45px;
 
-    font-size: 15px;
+    font-size: 14px;
 
     line-height: 1.5;
 }
 
-.next-button {
-    display: block;
+/* =========================
+   QUIZ NAVIGATION
+========================= */
 
-    margin: 20px auto 0;
+.quiz-navigation {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 25px;
+
+    border-top: 1px solid #2B2607;
+
+    padding-top: 18px;
+}
+
+.quiz-arrow {
+    width: 48px;
+
+    height: 42px;
 
     border: 1px solid #2B2607;
 
-    background: #2B2607;
+    background: #FFFCF0;
 
-    color: #FFFCF0;
+    color: #2B2607;
 
-    padding: 12px 24px;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
 
     cursor: pointer;
 
-    font-size: 14px;
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
 }
 
-.next-button:hover {
-    opacity: 0.85;
+.quiz-arrow:hover:not(:disabled) {
+    background: #f7f0df;
+
+    transform:
+        translateY(-2px);
 }
+
+.quiz-arrow:disabled {
+    opacity: 0.25;
+
+    cursor: default;
+}
+
+.quiz-counter {
+    font-size: 12px;
+
+    opacity: 0.65;
+}
+
+/* =========================
+   FINAL QUIZ
+========================= */
 
 .quiz-final {
+    max-width: 650px;
+
+    margin: 0 auto;
+
     text-align: center;
 
     display: none;
+
+    border: 1px solid #2B2607;
+
+    padding: 40px 25px;
+
+    background: #f7f0df;
 }
 
 .quiz-final h3 {
-    font-size: 25px;
+    font-size: 30px;
 
     font-weight: normal;
+
+    margin-bottom: 15px;
+}
+
+.quiz-final p {
+    font-size: 15px;
+
+    line-height: 1.6;
 }
 
 .restart-button {
@@ -481,9 +583,18 @@ body {
 
     padding: 11px 22px;
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
     cursor: pointer;
+
+    margin-top: 15px;
+}
+
+.restart-button:hover {
+    background: #FFFCF0;
 }
 
 /* =========================
@@ -493,7 +604,8 @@ body {
 @media (max-width: 750px) {
 
     .page {
-        padding: 80px 15px 50px;
+        padding:
+            80px 15px 50px;
     }
 
     .header h1 {
@@ -501,7 +613,8 @@ body {
     }
 
     .fact-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+            1fr 1fr;
     }
 
 }
@@ -509,15 +622,21 @@ body {
 @media (max-width: 500px) {
 
     .fact-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .quiz-options {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
 
     .header h1 {
-        font-size: 28px;
+        font-size: 29px;
+    }
+
+    .quiz-card {
+        padding: 22px 15px;
     }
 
 }
@@ -525,860 +644,1039 @@ body {
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
-     MENU BUTTON
-========================= -->
 
-<button class="menu-button" id="menuButton">
+<!-- ==================================================
+     HAMBURGER
+================================================== -->
+
+<button
+    class="menu-button"
+    id="menuButton"
+    type="button">
+
     ☰
+
 </button>
 
 
-<!-- =========================
+<!-- ==================================================
      SIDE MENU
-========================= -->
+================================================== -->
 
-<nav class="side-menu" id="sideMenu">
+<nav
+    class="side-menu"
+    id="sideMenu">
 
-    <a href="index.html">home</a>
+    <a href="index.html">
+        home
+    </a>
 
-    <a href="miss-you.html">I miss you</a>
+    <a href="miss-you.html">
+        I miss you
+    </a>
 
-    <a href="sad.html">I'm sad</a>
+    <a href="sad.html">
+        I'm sad
+    </a>
 
-    <a href="look-back.html">look back</a>
+    <a href="look-back.html">
+        look back
+    </a>
 
-    <a href="story.html">our story</a>
+    <a href="story.html">
+        our story
+    </a>
+
 
     <div class="menu-label">
         more little things:
     </div>
 
-    <a href="gallery.html">gallery</a>
 
-    <a href="fun-facts.html">fun facts</a>
+    <a href="gallery.html">
+        gallery
+    </a>
 
-    <a href="love-game.html">virtual dates</a>
+    <a href="fun-facts.html">
+        fun facts
+    </a>
 
-    <a href="Game.html">minigames</a>
+    <a href="virtual-dates.html">
+        virtual dates
+    </a>
+
+    <a href="love-game.html">
+        little things
+    </a>
 
 </nav>
 
 
-<!-- =========================
+<!-- ==================================================
      PAGE
-========================= -->
+================================================== -->
 
 <main class="page">
 
-    <header class="header">
 
-        <h1>fun facts ♡</h1>
+<header class="header">
 
-        <p>
-            little things you should probably know about me
-        </p>
+    <h1>
+        fun facts ♡
+    </h1>
 
-    </header>
+    <p>
+        little things you should probably know about me
+    </p>
+
+</header>
 
 
-    <!-- ==================================================
-         COMMON FACTS
-    =================================================== -->
+<!-- ==================================================
+     COMMON FACTS
+================================================== -->
 
-    <section class="fact-section">
+<section class="fact-section">
 
-        <div class="section-heading">
 
-            <div class="section-number">
-                01
+<div class="section-heading">
+
+    <div class="section-number">
+        01
+    </div>
+
+    <h2>
+        common facts
+    </h2>
+
+    <p>
+        the basics ♡
+    </p>
+
+</div>
+
+
+<div class="fact-grid">
+
+
+<!-- FLIP 01 -->
+
+<div
+    class="flip-card"
+    tabindex="0">
+
+    <div class="flip-inner">
+
+        <div class="flip-front">
+
+            <div class="flip-label">
+                FUN FACT #01
             </div>
 
-            <h2>common facts</h2>
+            <div class="fact-text">
+                something about my favourite things...
+            </div>
 
-            <p>
-                the basics ♡
-            </p>
+            <div class="flip-hint">
+                click to reveal ♡
+            </div>
 
         </div>
 
 
-        <div class="fact-grid">
+        <div class="flip-back">
 
-
-            <!-- FLIP CARD -->
-
-            <div class="flip-card" tabindex="0">
-
-                <div class="flip-inner">
-
-                    <div class="flip-front">
-
-                        <div class="flip-label">
-                            FUN FACT #01
-                        </div>
-
-                        <div class="fact-text">
-                            something about my favourite things...
-                        </div>
-
-                        <div class="flip-hint">
-                            click to reveal ♡
-                        </div>
-
-                    </div>
-
-                    <div class="flip-back">
-
-                        <div class="fact-text">
-                            My favorite color is black
-                        </div>
-
-                    </div>
-
-                </div>
-
+            <div class="fact-text">
+                My favorite color is black
             </div>
-
-
-            <!-- FLIP CARD -->
-
-            <div class="flip-card" tabindex="0">
-
-                <div class="flip-inner">
-
-                    <div class="flip-front">
-
-                        <div class="flip-label">
-                            FUN FACT #02
-                        </div>
-
-                        <div class="fact-text">
-                            my favourite comfort food...
-                        </div>
-
-                        <div class="flip-hint">
-                            click to reveal ♡
-                        </div>
-
-                    </div>
-
-                    <div class="flip-back">
-
-                        <div class="fact-text">
-                            Favorite food is udon
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- FLIP CARD -->
-
-            <div class="flip-card" tabindex="0">
-
-                <div class="flip-inner">
-
-                    <div class="flip-front">
-
-                        <div class="flip-label">
-                            FUN FACT #03
-                        </div>
-
-                        <div class="fact-text">
-                            my favourite animals...
-                        </div>
-
-                        <div class="flip-hint">
-                            click to reveal ♡
-                        </div>
-
-                    </div>
-
-                    <div class="flip-back">
-
-                        <div class="fact-text">
-                            Favorite animals are lobsters
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- FLIP CARD -->
-
-            <div class="flip-card" tabindex="0">
-
-                <div class="flip-inner">
-
-                    <div class="flip-front">
-
-                        <div class="flip-label">
-                            FUN FACT #04
-                        </div>
-
-                        <div class="fact-text">
-                            an artist I really like...
-                        </div>
-
-                        <div class="flip-hint">
-                            click to reveal ♡
-                        </div>
-
-                    </div>
-
-                    <div class="flip-back">
-
-                        <div class="fact-text">
-                            Favorite artist are the Gorillaz
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    FACT #05
-                </div>
-
-                <div class="fact-text">
-                    I don’t like celery and asparagus
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    FACT #06
-                </div>
-
-                <div class="fact-text">
-                    I am very lazy
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    FACT #07
-                </div>
-
-                <div class="fact-text">
-                    I love to sleep
-                </div>
-
-            </div>
-
-
-            <!-- FLIP CARD -->
-
-            <div class="flip-card" tabindex="0">
-
-                <div class="flip-inner">
-
-                    <div class="flip-front">
-
-                        <div class="flip-label">
-                            FUN FACT #08
-                        </div>
-
-                        <div class="fact-text">
-                            two sports I like...
-                        </div>
-
-                        <div class="flip-hint">
-                            click to reveal ♡
-                        </div>
-
-                    </div>
-
-                    <div class="flip-back">
-
-                        <div class="fact-text">
-                            I like basketball and badminton
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    FACT #09
-                </div>
-
-                <div class="fact-text">
-                    I love my dogs
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    FACT #10
-                </div>
-
-                <div class="fact-text">
-                    I am cool toned and winter
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    FACT #11
-                </div>
-
-                <div class="fact-text">
-                    I like sweet things
-                </div>
-
-            </div>
-
 
         </div>
 
-    </section>
+    </div>
+
+</div>
 
 
-    <!-- ==================================================
-         LOVE FACTS
-    =================================================== -->
+<!-- FLIP 02 -->
 
-    <section class="fact-section">
+<div
+    class="flip-card"
+    tabindex="0">
 
-        <div class="section-heading">
+    <div class="flip-inner">
 
-            <div class="section-number">
-                02
+        <div class="flip-front">
+
+            <div class="flip-label">
+                FUN FACT #02
             </div>
 
-            <h2>love facts ♡</h2>
+            <div class="fact-text">
+                my favourite comfort food...
+            </div>
 
-            <p>
-                things you should definitely know
-            </p>
+            <div class="flip-hint">
+                click to reveal ♡
+            </div>
 
         </div>
 
 
-        <div class="fact-grid">
+        <div class="flip-back">
 
-
-            <!-- FLIP -->
-
-            <div class="flip-card" tabindex="0">
-
-                <div class="flip-inner">
-
-                    <div class="flip-front">
-
-                        <div class="flip-label">
-                            LOVE FACT #01
-                        </div>
-
-                        <div class="fact-text">
-                            something I really love...
-                        </div>
-
-                        <div class="flip-hint">
-                            click to reveal ♡
-                        </div>
-
-                    </div>
-
-                    <div class="flip-back">
-
-                        <div class="fact-text">
-                            I love hugs and cuddles
-                        </div>
-
-                    </div>
-
-                </div>
-
+            <div class="fact-text">
+                Favorite food is udon
             </div>
-
-
-            <!-- FLIP -->
-
-            <div class="flip-card" tabindex="0">
-
-                <div class="flip-inner">
-
-                    <div class="flip-front">
-
-                        <div class="flip-label">
-                            LOVE FACT #02
-                        </div>
-
-                        <div class="fact-text">
-                            my favourite kind of kisses...
-                        </div>
-
-                        <div class="flip-hint">
-                            click to reveal ♡
-                        </div>
-
-                    </div>
-
-                    <div class="flip-back">
-
-                        <div class="fact-text">
-                            I like small kisses all over my face
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    LOVE FACT #03
-                </div>
-
-                <div class="fact-text">
-                    I love your cute face
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    LOVE FACT #04
-                </div>
-
-                <div class="fact-text">
-                    When I am waiting for you I cannot do anything productive
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    LOVE FACT #05
-                </div>
-
-                <div class="fact-text">
-                    I feel like you I ask you more questions than you ask me
-                </div>
-
-            </div>
-
-
-            <!-- FLIP -->
-
-            <div class="flip-card" tabindex="0">
-
-                <div class="flip-inner">
-
-                    <div class="flip-front">
-
-                        <div class="flip-label">
-                            LOVE FACT #06
-                        </div>
-
-                        <div class="fact-text">
-                            my love language...
-                        </div>
-
-                        <div class="flip-hint">
-                            click to reveal ♡
-                        </div>
-
-                    </div>
-
-                    <div class="flip-back">
-
-                        <div class="fact-text">
-                            My love language is quality time
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    LOVE FACT #07
-                </div>
-
-                <div class="fact-text">
-                    I like dolls
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    LOVE FACT #08
-                </div>
-
-                <div class="fact-text">
-                    I like to hug your tummy when we sleep
-                </div>
-
-            </div>
-
-
-            <!-- FLIP -->
-
-            <div class="flip-card" tabindex="0">
-
-                <div class="flip-inner">
-
-                    <div class="flip-front">
-
-                        <div class="flip-label">
-                            LOVE FACT #09
-                        </div>
-
-                        <div class="fact-text">
-                            two things I really love about you...
-                        </div>
-
-                        <div class="flip-hint">
-                            click to reveal ♡
-                        </div>
-
-                    </div>
-
-                    <div class="flip-back">
-
-                        <div class="fact-text">
-                            I like your warm smile and beautiful eyes
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    LOVE FACT #10
-                </div>
-
-                <div class="fact-text">
-                    Your face is too cute sometimes
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    LOVE FACT #11
-                </div>
-
-                <div class="fact-text">
-                    I miss you everyday
-                </div>
-
-            </div>
-
-
-            <!-- NORMAL -->
-
-            <div class="fact-card">
-
-                <div class="fact-number">
-                    LOVE FACT #12
-                </div>
-
-                <div class="fact-text">
-                    Sometimes I’m scared to bother you so I try not to text you too much when you are busy
-                </div>
-
-            </div>
-
-
-            <!-- SPECIAL -->
-
-            <div class="special-love">
-
-                <div class="heart">
-                    ♡
-                </div>
-
-                <p>
-                    I love you the most
-                </p>
-
-            </div>
-
 
         </div>
 
-    </section>
+    </div>
+
+</div>
 
 
-    <!-- ==================================================
-         PERSONALITY FACTS
-    =================================================== -->
+<!-- FLIP 03 -->
 
-    <section class="fact-section">
+<div
+    class="flip-card"
+    tabindex="0">
 
-        <div class="section-heading">
+    <div class="flip-inner">
 
-            <div class="section-number">
-                03
+        <div class="flip-front">
+
+            <div class="flip-label">
+                FUN FACT #03
             </div>
 
-            <h2>personality facts</h2>
+            <div class="fact-text">
+                my favourite animals...
+            </div>
 
-            <p>
-                unfortunately, this is what you're dealing with
-            </p>
+            <div class="flip-hint">
+                click to reveal ♡
+            </div>
 
         </div>
 
 
-        <div class="fact-grid">
+        <div class="flip-back">
 
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #01</div>
-                <div class="fact-text">
-                    I am self aware but too lazy to do anything about it
-                </div>
+            <div class="fact-text">
+                Favorite animals are lobsters
             </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #02</div>
-                <div class="fact-text">
-                    I get tired easier and can sleep all day
-                </div>
-            </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #03</div>
-                <div class="fact-text">
-                    I have trouble sleeping if I am anxious or worried
-                </div>
-            </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #04</div>
-                <div class="fact-text">
-                    I am often forgetful and lose concentration easily
-                </div>
-            </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #05</div>
-                <div class="fact-text">
-                    I am good at art but bad at singing
-                </div>
-            </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #06</div>
-                <div class="fact-text">
-                    I prefer comfortable clothes over pretty clothes
-                </div>
-            </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #07</div>
-                <div class="fact-text">
-                    I don’t like to exercise
-                </div>
-            </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #08</div>
-                <div class="fact-text">
-                    I need to stay with someone to help me be motivated
-                </div>
-            </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #09</div>
-                <div class="fact-text">
-                    I love to spend time with my loved ones
-                </div>
-            </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #10</div>
-                <div class="fact-text">
-                    I care about other’s happiness over my own
-                </div>
-            </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #11</div>
-                <div class="fact-text">
-                    I sometimes think I am not good enough to be your girlfriend
-                </div>
-            </div>
-
-
-            <div class="fact-card">
-                <div class="fact-number">FACT #12</div>
-                <div class="fact-text">
-                    I like that I can be immature and childish around you
-                </div>
-            </div>
-
 
         </div>
 
-    </section>
+    </div>
+
+</div>
 
 
-    <!-- ==================================================
-         QUIZ
-    =================================================== -->
+<!-- FLIP 04 -->
 
-    <section class="quiz-section">
+<div
+    class="flip-card"
+    tabindex="0">
 
-        <div class="quiz-heading">
+    <div class="flip-inner">
 
-            <h2>how well do you know me?</h2>
+        <div class="flip-front">
 
-            <p>
-                okay... let's see if you were actually paying attention ♡
-            </p>
+            <div class="flip-label">
+                FUN FACT #04
+            </div>
+
+            <div class="fact-text">
+                an artist I really like...
+            </div>
+
+            <div class="flip-hint">
+                click to reveal ♡
+            </div>
 
         </div>
 
 
-        <div class="quiz-card" id="quizCard">
+        <div class="flip-back">
 
-            <div class="quiz-progress" id="quizProgress">
-                question 1 of 8
+            <div class="fact-text">
+                Favorite artist are the Gorillaz
             </div>
 
+        </div>
 
-            <div class="quiz-question" id="quizQuestion">
+    </div>
+
+</div>
+
+
+<!-- NORMAL 05 -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #05
+    </div>
+
+    <div class="fact-text">
+        I don’t like celery and asparagus
+    </div>
+
+</div>
+
+
+<!-- NORMAL 06 -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #06
+    </div>
+
+    <div class="fact-text">
+        I am very lazy
+    </div>
+
+</div>
+
+
+<!-- NORMAL 07 -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #07
+    </div>
+
+    <div class="fact-text">
+        I love to sleep
+    </div>
+
+</div>
+
+
+<!-- FLIP 08 -->
+
+<div
+    class="flip-card"
+    tabindex="0">
+
+    <div class="flip-inner">
+
+        <div class="flip-front">
+
+            <div class="flip-label">
+                FUN FACT #08
             </div>
 
-
-            <div class="quiz-options" id="quizOptions">
+            <div class="fact-text">
+                two sports I like...
             </div>
 
-
-            <div class="quiz-result" id="quizResult">
+            <div class="flip-hint">
+                click to reveal ♡
             </div>
-
-
-            <button
-                class="next-button"
-                id="nextButton"
-                style="display:none;"
-                type="button">
-
-                next question →
-
-            </button>
 
         </div>
 
 
-        <!-- FINAL RESULT -->
+        <div class="flip-back">
 
-        <div class="quiz-final" id="quizFinal">
-
-            <h3 id="finalTitle">
-                ♡
-            </h3>
-
-            <p id="finalMessage">
-            </p>
-
-            <button
-                class="restart-button"
-                id="restartButton"
-                type="button">
-
-                try again
-
-            </button>
+            <div class="fact-text">
+                I like basketball and badminton
+            </div>
 
         </div>
 
-    </section>
+    </div>
+
+</div>
+
+
+<!-- NORMAL 09 -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #09
+    </div>
+
+    <div class="fact-text">
+        I love my dogs
+    </div>
+
+</div>
+
+
+<!-- NORMAL 10 -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #10
+    </div>
+
+    <div class="fact-text">
+        I am cool toned and winter
+    </div>
+
+</div>
+
+
+<!-- NORMAL 11 -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #11
+    </div>
+
+    <div class="fact-text">
+        I like sweet things
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     LOVE FACTS
+================================================== -->
+
+<section class="fact-section">
+
+
+<div class="section-heading">
+
+    <div class="section-number">
+        02
+    </div>
+
+    <h2>
+        love facts ♡
+    </h2>
+
+    <p>
+        things you should definitely know
+    </p>
+
+</div>
+
+
+<div class="fact-grid">
+
+
+<!-- FLIP -->
+
+<div
+    class="flip-card"
+    tabindex="0">
+
+    <div class="flip-inner">
+
+        <div class="flip-front">
+
+            <div class="flip-label">
+                LOVE FACT #01
+            </div>
+
+            <div class="fact-text">
+                something I really love...
+            </div>
+
+            <div class="flip-hint">
+                click to reveal ♡
+            </div>
+
+        </div>
+
+
+        <div class="flip-back">
+
+            <div class="fact-text">
+                I love hugs and cuddles
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FLIP -->
+
+<div
+    class="flip-card"
+    tabindex="0">
+
+    <div class="flip-inner">
+
+        <div class="flip-front">
+
+            <div class="flip-label">
+                LOVE FACT #02
+            </div>
+
+            <div class="fact-text">
+                my favourite kind of kisses...
+            </div>
+
+            <div class="flip-hint">
+                click to reveal ♡
+            </div>
+
+        </div>
+
+
+        <div class="flip-back">
+
+            <div class="fact-text">
+                I like small kisses all over my face
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- NORMAL -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        LOVE FACT #03
+    </div>
+
+    <div class="fact-text">
+        I love your cute face
+    </div>
+
+</div>
+
+
+<!-- NORMAL -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        LOVE FACT #04
+    </div>
+
+    <div class="fact-text">
+        When I am waiting for you I cannot do anything productive
+    </div>
+
+</div>
+
+
+<!-- NORMAL -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        LOVE FACT #05
+    </div>
+
+    <div class="fact-text">
+        I feel like you I ask you more questions than you ask me
+    </div>
+
+</div>
+
+
+<!-- FLIP -->
+
+<div
+    class="flip-card"
+    tabindex="0">
+
+    <div class="flip-inner">
+
+        <div class="flip-front">
+
+            <div class="flip-label">
+                LOVE FACT #06
+            </div>
+
+            <div class="fact-text">
+                my love language...
+            </div>
+
+            <div class="flip-hint">
+                click to reveal ♡
+            </div>
+
+        </div>
+
+
+        <div class="flip-back">
+
+            <div class="fact-text">
+                My love language is quality time
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- NORMAL -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        LOVE FACT #07
+    </div>
+
+    <div class="fact-text">
+        I like dolls
+    </div>
+
+</div>
+
+
+<!-- NORMAL -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        LOVE FACT #08
+    </div>
+
+    <div class="fact-text">
+        I like to hug your tummy when we sleep
+    </div>
+
+</div>
+
+
+<!-- FLIP -->
+
+<div
+    class="flip-card"
+    tabindex="0">
+
+    <div class="flip-inner">
+
+        <div class="flip-front">
+
+            <div class="flip-label">
+                LOVE FACT #09
+            </div>
+
+            <div class="fact-text">
+                two things I really love about you...
+            </div>
+
+            <div class="flip-hint">
+                click to reveal ♡
+            </div>
+
+        </div>
+
+
+        <div class="flip-back">
+
+            <div class="fact-text">
+                I like your warm smile and beautiful eyes
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- NORMAL -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        LOVE FACT #10
+    </div>
+
+    <div class="fact-text">
+        Your face is too cute sometimes
+    </div>
+
+</div>
+
+
+<!-- NORMAL -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        LOVE FACT #11
+    </div>
+
+    <div class="fact-text">
+        I miss you everyday
+    </div>
+
+</div>
+
+
+<!-- NORMAL -->
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        LOVE FACT #12
+    </div>
+
+    <div class="fact-text">
+        Sometimes I’m scared to bother you so I try not to text you too much when you are busy
+    </div>
+
+</div>
+
+
+<!-- SPECIAL -->
+
+<div class="special-love">
+
+    <div class="heart">
+        ♡
+    </div>
+
+    <p>
+        I love you the most
+    </p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     PERSONALITY FACTS
+================================================== -->
+
+<section class="fact-section">
+
+
+<div class="section-heading">
+
+    <div class="section-number">
+        03
+    </div>
+
+    <h2>
+        personality facts
+    </h2>
+
+    <p>
+        unfortunately, this is what you're dealing with
+    </p>
+
+</div>
+
+
+<div class="fact-grid">
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #01
+    </div>
+
+    <div class="fact-text">
+        I am self aware but too lazy to do anything about it
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #02
+    </div>
+
+    <div class="fact-text">
+        I get tired easier and can sleep all day
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #03
+    </div>
+
+    <div class="fact-text">
+        I have trouble sleeping if I am anxious or worried
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #04
+    </div>
+
+    <div class="fact-text">
+        I am often forgetful and lose concentration easily
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #05
+    </div>
+
+    <div class="fact-text">
+        I am good at art but bad at singing
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #06
+    </div>
+
+    <div class="fact-text">
+        I prefer comfortable clothes over pretty clothes
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #07
+    </div>
+
+    <div class="fact-text">
+        I don’t like to exercise
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #08
+    </div>
+
+    <div class="fact-text">
+        I need to stay with someone to help me be motivated
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #09
+    </div>
+
+    <div class="fact-text">
+        I love to spend time with my loved ones
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #10
+    </div>
+
+    <div class="fact-text">
+        I care about other’s happiness over my own
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #11
+    </div>
+
+    <div class="fact-text">
+        I sometimes think I am not good enough to be your girlfriend
+    </div>
+
+</div>
+
+
+<div class="fact-card">
+
+    <div class="fact-number">
+        FACT #12
+    </div>
+
+    <div class="fact-text">
+        I like that I can be immature and childish around you
+    </div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     QUIZ
+================================================== -->
+
+<section class="quiz-section">
+
+
+<div class="quiz-heading">
+
+    <h2>
+        how well do you know me?
+    </h2>
+
+    <p>
+        okay... let's see if you were actually paying attention ♡
+    </p>
+
+</div>
+
+
+<div
+    class="quiz-card"
+    id="quizCard">
+
+
+    <div
+        class="quiz-progress"
+        id="quizProgress">
+
+        question 1 of 12
+
+    </div>
+
+
+    <div
+        class="quiz-question"
+        id="quizQuestion">
+    </div>
+
+
+    <div
+        class="quiz-options"
+        id="quizOptions">
+    </div>
+
+
+    <div
+        class="quiz-result"
+        id="quizResult">
+    </div>
+
+
+    <!-- ARROWS -->
+
+    <div class="quiz-navigation">
+
+
+        <button
+            class="quiz-arrow"
+            id="previousButton"
+            type="button">
+
+            ←
+
+        </button>
+
+
+        <span
+            class="quiz-counter"
+            id="quizCounter">
+
+            1 / 12
+
+        </span>
+
+
+        <button
+            class="quiz-arrow"
+            id="nextButton"
+            type="button">
+
+            →
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- FINAL RESULT -->
+
+<div
+    class="quiz-final"
+    id="quizFinal">
+
+
+    <h3 id="finalTitle">
+        ♡
+    </h3>
+
+
+    <p id="finalMessage">
+    </p>
+
+
+    <button
+        class="restart-button"
+        id="restartButton"
+        type="button">
+
+        try again
+
+    </button>
+
+
+</div>
+
+
+</section>
+
 
 </main>
 
@@ -1390,17 +1688,23 @@ body {
 ================================================== */
 
 const menuButton =
-    document.getElementById("menuButton");
+    document.getElementById(
+        "menuButton"
+    );
 
 const sideMenu =
-    document.getElementById("sideMenu");
+    document.getElementById(
+        "sideMenu"
+    );
 
 
 menuButton.addEventListener(
     "click",
-    function () {
+    function() {
 
-        sideMenu.classList.toggle("open");
+        sideMenu.classList.toggle(
+            "open"
+        );
 
     }
 );
@@ -1411,47 +1715,53 @@ menuButton.addEventListener(
 ================================================== */
 
 const flipCards =
-    document.querySelectorAll(".flip-card");
-
-
-flipCards.forEach(function(card) {
-
-    function flip() {
-
-        card.classList.toggle("flipped");
-
-    }
-
-
-    card.addEventListener(
-        "click",
-        flip
+    document.querySelectorAll(
+        ".flip-card"
     );
 
 
-    card.addEventListener(
-        "keydown",
-        function(event) {
+flipCards.forEach(
+    function(card) {
 
-            if (
-                event.key === "Enter" ||
-                event.key === " "
-            ) {
+        function flipCard() {
 
-                event.preventDefault();
-
-                flip();
-
-            }
+            card.classList.toggle(
+                "flipped"
+            );
 
         }
-    );
 
-});
+
+        card.addEventListener(
+            "click",
+            flipCard
+        );
+
+
+        card.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
+
+                    event.preventDefault();
+
+                    flipCard();
+
+                }
+
+            }
+        );
+
+    }
+);
 
 
 /* ==================================================
-   QUIZ
+   QUIZ QUESTIONS
 ================================================== */
 
 const questions = [
@@ -1573,45 +1883,141 @@ const questions = [
         ],
 
         answer: 0
+    },
+
+
+    {
+        question:
+            "What is my dog's name?",
+
+        options: [
+            "Lucky",
+            "Milo",
+            "Coco",
+            "Max"
+        ],
+
+        answer: 0
+    },
+
+
+    {
+        question:
+            "What is my dream car?",
+
+        options: [
+            "Porsche",
+            "Rolls Royce",
+            "Lamborghini",
+            "Mercedes"
+        ],
+
+        answer: 1
+    },
+
+
+    {
+        question:
+            "What was my favorite subject in high school?",
+
+        options: [
+            "Mathematics",
+            "English",
+            "Biology",
+            "History"
+        ],
+
+        answer: 2
+    },
+
+
+    {
+        question:
+            "What is my least favorite color?",
+
+        options: [
+            "Pink",
+            "Green",
+            "Blue",
+            "Purple"
+        ],
+
+        answer: 3
     }
 
 ];
 
 
+/* ==================================================
+   QUIZ VARIABLES
+================================================== */
+
 let currentQuestion = 0;
 
 let score = 0;
 
+let answeredQuestions = [];
+
 
 const quizProgress =
-    document.getElementById("quizProgress");
+    document.getElementById(
+        "quizProgress"
+    );
 
 const quizQuestion =
-    document.getElementById("quizQuestion");
+    document.getElementById(
+        "quizQuestion"
+    );
 
 const quizOptions =
-    document.getElementById("quizOptions");
+    document.getElementById(
+        "quizOptions"
+    );
 
 const quizResult =
-    document.getElementById("quizResult");
+    document.getElementById(
+        "quizResult"
+    );
+
+const previousButton =
+    document.getElementById(
+        "previousButton"
+    );
 
 const nextButton =
-    document.getElementById("nextButton");
+    document.getElementById(
+        "nextButton"
+    );
+
+const quizCounter =
+    document.getElementById(
+        "quizCounter"
+    );
 
 const quizCard =
-    document.getElementById("quizCard");
+    document.getElementById(
+        "quizCard"
+    );
 
 const quizFinal =
-    document.getElementById("quizFinal");
+    document.getElementById(
+        "quizFinal"
+    );
 
 const finalTitle =
-    document.getElementById("finalTitle");
+    document.getElementById(
+        "finalTitle"
+    );
 
 const finalMessage =
-    document.getElementById("finalMessage");
+    document.getElementById(
+        "finalMessage"
+    );
 
 const restartButton =
-    document.getElementById("restartButton");
+    document.getElementById(
+        "restartButton"
+    );
 
 
 /* ==================================================
@@ -1631,6 +2037,12 @@ function loadQuestion() {
         questions.length;
 
 
+    quizCounter.textContent =
+        (currentQuestion + 1) +
+        " / " +
+        questions.length;
+
+
     quizQuestion.textContent =
         question.question;
 
@@ -1643,15 +2055,41 @@ function loadQuestion() {
         "";
 
 
-    nextButton.style.display =
-        "none";
+    /* Previous arrow */
 
+    previousButton.disabled =
+        currentQuestion === 0;
+
+
+    /* Last question */
+
+    if (
+        currentQuestion ===
+        questions.length - 1
+    ) {
+
+        nextButton.textContent =
+            "✓";
+
+    }
+
+    else {
+
+        nextButton.textContent =
+            "→";
+
+    }
+
+
+    /* Create answers */
 
     question.options.forEach(
         function(option, index) {
 
             const button =
-                document.createElement("button");
+                document.createElement(
+                    "button"
+                );
 
 
             button.className =
@@ -1686,17 +2124,114 @@ function loadQuestion() {
         }
     );
 
+
+    /* Restore previous answer */
+
+    if (
+        answeredQuestions[
+            currentQuestion
+        ] !== undefined
+    ) {
+
+        showPreviousAnswer();
+
+    }
+
 }
 
 
 /* ==================================================
-   ANSWER
+   CHOOSE ANSWER
 ================================================== */
 
 function chooseAnswer(
     selected,
     clickedButton
 ) {
+
+    /*
+       Prevent changing an answer
+       after it has been selected.
+    */
+
+    if (
+        answeredQuestions[
+            currentQuestion
+        ] !== undefined
+    ) {
+
+        return;
+
+    }
+
+
+    const question =
+        questions[currentQuestion];
+
+
+    const buttons =
+        quizOptions.querySelectorAll(
+            ".quiz-option"
+        );
+
+
+    answeredQuestions[
+        currentQuestion
+    ] = selected;
+
+
+    buttons.forEach(
+        function(button) {
+
+            button.disabled =
+                true;
+
+        }
+    );
+
+
+    if (
+        selected ===
+        question.answer
+    ) {
+
+        score++;
+
+
+        clickedButton.style.background =
+            "#f0e7d0";
+
+
+        quizResult.textContent =
+            "correct ♡ you actually pay attention.";
+
+    }
+
+    else {
+
+        clickedButton.style.background =
+            "#eee8d7";
+
+
+        quizResult.textContent =
+            "wrong 😭 but I'll forgive you.";
+
+    }
+
+}
+
+
+/* ==================================================
+   SHOW PREVIOUS ANSWER
+================================================== */
+
+function showPreviousAnswer() {
+
+    const selected =
+        answeredQuestions[
+            currentQuestion
+        ];
+
 
     const question =
         questions[currentQuestion];
@@ -1723,51 +2258,73 @@ function chooseAnswer(
         question.answer
     ) {
 
-        score++;
+        buttons[selected].style.background =
+            "#f0e7d0";
 
 
         quizResult.textContent =
             "correct ♡ you actually pay attention.";
 
-
-        clickedButton.style.background =
-            "#f0e7d0";
-
     }
 
     else {
 
-        quizResult.textContent =
-            "wrong 😭 but I'll forgive you.";
-
-
-        clickedButton.style.background =
+        buttons[selected].style.background =
             "#eee8d7";
 
+
+        buttons[
+            question.answer
+        ].style.background =
+            "#f0e7d0";
+
+
+        quizResult.textContent =
+            "you chose " +
+            question.options[selected] +
+            ". The answer was " +
+            question.options[
+                question.answer
+            ] +
+            ".";
+
     }
-
-
-    nextButton.style.display =
-        "block";
 
 }
 
 
 /* ==================================================
-   NEXT
+   NEXT ARROW
 ================================================== */
 
 nextButton.addEventListener(
     "click",
     function() {
 
-        currentQuestion++;
+        /*
+           Must answer before moving on.
+        */
+
+        if (
+            answeredQuestions[
+                currentQuestion
+            ] === undefined
+        ) {
+
+            quizResult.textContent =
+                "choose an answer first ♡";
+
+            return;
+
+        }
 
 
         if (
             currentQuestion <
-            questions.length
+            questions.length - 1
         ) {
+
+            currentQuestion++;
 
             loadQuestion();
 
@@ -1776,6 +2333,28 @@ nextButton.addEventListener(
         else {
 
             showFinal();
+
+        }
+
+    }
+);
+
+
+/* ==================================================
+   PREVIOUS ARROW
+================================================== */
+
+previousButton.addEventListener(
+    "click",
+    function() {
+
+        if (
+            currentQuestion > 0
+        ) {
+
+            currentQuestion--;
+
+            loadQuestion();
 
         }
 
@@ -1803,28 +2382,28 @@ function showFinal() {
         questions.length;
 
 
-    if (score <= 2) {
+    if (score <= 3) {
 
         finalMessage.textContent =
             "wow... do you even know me? 😭 ♡";
 
     }
 
-    else if (score <= 4) {
+    else if (score <= 6) {
 
         finalMessage.textContent =
             "okay, you know me a little ♡";
 
     }
 
-    else if (score <= 6) {
+    else if (score <= 9) {
 
         finalMessage.textContent =
             "okayyy, you actually pay attention.";
 
     }
 
-    else if (score === 7) {
+    else if (score <= 11) {
 
         finalMessage.textContent =
             "so close... you almost know everything about me ♡";
@@ -1853,11 +2432,16 @@ restartButton.addEventListener(
 
         score = 0;
 
+        answeredQuestions = [];
+
+
         quizFinal.style.display =
             "none";
 
+
         quizCard.style.display =
             "block";
+
 
         loadQuestion();
 
