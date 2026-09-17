@@ -24,10 +24,11 @@
         body {
             margin: 0;
 
-            /* ✏️ CHANGE THIS for the background colour */
+            /* ✏️ CHANGE THIS: Background colour */
             background: #FFFCF0;
 
-            color: #292723;
+            /* ✏️ CHANGE THIS: Main text colour */
+            color: #2B2607;
 
             font-family: Georgia, "Times New Roman", serif;
 
@@ -66,7 +67,6 @@
 
 
         #dialogue {
-
             width: 90%;
 
             max-width: 700px;
@@ -82,7 +82,6 @@
 
 
         .dialogue-line {
-
             animation: appear 1.2s ease forwards;
         }
 
@@ -109,7 +108,6 @@
         ========================================== */
 
         #homepage {
-
             opacity: 0;
 
             transition: opacity 2s ease;
@@ -119,13 +117,11 @@
 
 
         #homepage.visible {
-
             opacity: 1;
         }
 
 
         .page {
-
             max-width: 1100px;
 
             margin: auto;
@@ -135,7 +131,7 @@
 
 
         /* ==========================================
-           LEFT MENU BUTTON
+           MENU BUTTON
         ========================================== */
 
         .menu-button {
@@ -158,7 +154,7 @@
 
             cursor: pointer;
 
-            color: #292723;
+            color: #2B2607;
 
             padding: 5px;
 
@@ -167,7 +163,6 @@
 
 
         .menu-button:hover {
-
             transform: rotate(8deg);
         }
 
@@ -190,7 +185,7 @@
 
             background: #FFFCF0;
 
-            border-right: 1px solid #292723;
+            border-right: 1px solid #2B2607;
 
             padding: 90px 35px 40px;
 
@@ -200,12 +195,11 @@
 
             transition: transform 0.45s ease;
 
-            box-shadow: 5px 0 20px rgba(0,0,0,0.03);
+            box-shadow: 5px 0 20px rgba(43, 38, 7, 0.04);
         }
 
 
         .side-menu.open {
-
             transform: translateX(0);
         }
 
@@ -224,7 +218,7 @@
 
             display: block;
 
-            color: #292723;
+            color: #2B2607;
 
             text-decoration: none;
 
@@ -232,7 +226,9 @@
 
             margin: 17px 0;
 
-            transition: transform 0.2s ease;
+            transition:
+                transform 0.2s ease,
+                opacity 0.2s ease;
         }
 
 
@@ -261,6 +257,68 @@
 
 
         /* ==========================================
+           SECRET BUTTON
+        ========================================== */
+
+        /*
+           The secret area is technically there,
+           but you won't really see it until you
+           hover over it.
+        */
+
+        .secret-area {
+
+            margin-top: 40px;
+
+            height: 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+        }
+
+
+        .secret-button {
+
+            border: none;
+
+            background: transparent;
+
+            color: #2B2607;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            font-style: italic;
+
+            cursor: pointer;
+
+            opacity: 0;
+
+            transition: opacity 0.5s ease;
+        }
+
+
+        /* ✨ It slowly appears when hovered */
+
+        .secret-area:hover .secret-button {
+
+            opacity: 0.38;
+        }
+
+
+        .secret-button:hover {
+
+            opacity: 0.75 !important;
+        }
+
+
+        /* ==========================================
            HEADER
         ========================================== */
 
@@ -270,7 +328,7 @@
 
             padding: 45px 20px 30px;
 
-            border-bottom: 1px solid #292723;
+            border-bottom: 1px solid #2B2607;
         }
 
 
@@ -298,7 +356,7 @@
 
         .heart {
 
-            color: #B97979;
+            color: #8B5E3C;
 
             font-size: 25px;
         }
@@ -337,7 +395,7 @@
 
 
         /* ==========================================
-           FOUR MAIN BUTTONS
+           FOUR MAIN CARDS
         ========================================== */
 
         .choices {
@@ -362,7 +420,7 @@
 
             height: 190px;
 
-            border: 1px solid #292723;
+            border: 1px solid #2B2607;
 
             display: flex;
 
@@ -374,7 +432,7 @@
 
             text-decoration: none;
 
-            color: #292723;
+            color: #2B2607;
 
             font-size: 20px;
 
@@ -388,9 +446,11 @@
 
         .choice:hover {
 
-            transform: translateY(-7px) rotate(-1deg);
+            transform:
+                translateY(-7px)
+                rotate(-1deg);
 
-            background: #fff8f4;
+            background: #FFF8F4;
         }
 
 
@@ -413,7 +473,7 @@
 
 
         /* ==========================================
-           LITTLE FOOTER
+           FOOTER
         ========================================== */
 
         .footer-note {
@@ -424,7 +484,7 @@
 
             padding: 30px;
 
-            border-top: 1px solid #292723;
+            border-top: 1px solid #2B2607;
 
             font-size: 14px;
 
@@ -439,20 +499,19 @@
         @media (max-width: 600px) {
 
             .page {
-
                 padding: 20px;
             }
 
 
             header h1 {
-
                 font-size: 38px;
             }
 
 
             .choices {
 
-                grid-template-columns: repeat(2, 145px);
+                grid-template-columns:
+                    repeat(2, 145px);
 
                 gap: 15px;
             }
@@ -469,7 +528,6 @@
 
 
             #dialogue {
-
                 font-size: 24px;
             }
 
@@ -496,7 +554,7 @@
 
 
     <!-- ==========================================
-         SIDE MENU
+         HAMBURGER MENU
     ========================================== -->
 
     <button
@@ -509,21 +567,45 @@
     </button>
 
 
+
+    <!-- ==========================================
+         SIDE MENU
+    ========================================== -->
+
     <div id="sideMenu" class="side-menu">
 
+
         <!-- ✏️ CHANGE THIS -->
-        <h2>hello, you ♡</h2>
+
+        <h2>
+            hello, you ♡
+        </h2>
 
 
-        <a href="index.html">home</a>
+        <a href="index.html">
+            home
+        </a>
 
-        <a href="miss-you.html">I miss you</a>
 
-        <a href="sad.html">I'm sad</a>
+        <a href="miss-you.html">
+            I miss you
+        </a>
 
-        <a href="look-back.html">look back</a>
 
-        <a href="story.html">our story</a>
+        <a href="sad.html">
+            I'm sad
+        </a>
+
+
+        <a href="look-back.html">
+            look back
+        </a>
+
+
+        <a href="story.html">
+            our story
+        </a>
+
 
 
         <div class="menu-section">
@@ -531,23 +613,45 @@
         </div>
 
 
-        <!-- ✏️ ADD MORE PAGES HERE -->
-
-        <a href="gallery.html">gallery</a>
-
-        <a href="fun-facts.html">fun facts</a>
-
-        <a href="virtual-dates.html">virtual dates</a>
-
-        <a href="little-things.html">little things</a>
+        <a href="gallery.html">
+            gallery
+        </a>
 
 
-        <div class="menu-section">
-            secret
+        <a href="fun-facts.html">
+            fun facts
+        </a>
+
+
+        <a href="virtual-dates.html">
+            virtual dates
+        </a>
+
+
+        <a href="little-things.html">
+            little things
+        </a>
+
+
+
+        <!-- ======================================
+             SECRET
+        ====================================== -->
+
+        <div
+            class="secret-area"
+            onclick="secretClicked()">
+
+            <button
+                id="secretButton"
+                class="secret-button">
+
+                don't click me
+
+            </button>
+
         </div>
 
-
-        <a href="secret.html">don't click this</a>
 
     </div>
 
@@ -559,12 +663,14 @@
 
     <div id="homepage">
 
+
         <div class="page">
 
 
             <header>
 
                 <!-- ✏️ CHANGE THIS -->
+
                 <h1>
                     hello, you
                     <span class="heart">♡</span>
@@ -572,6 +678,7 @@
 
 
                 <!-- ✏️ CHANGE THIS -->
+
                 <p>
                     a small corner of the internet, just for you.
                 </p>
@@ -582,13 +689,16 @@
 
             <section class="welcome">
 
+
                 <!-- ✏️ CHANGE THIS -->
+
                 <h2>
                     so... you're staying?
                 </h2>
 
 
                 <!-- ✏️ CHANGE THIS -->
+
                 <p>
                     I suppose if you've made it this far,
                     you might as well look around.
@@ -596,25 +706,29 @@
 
 
                 <!-- ✏️ CHANGE THIS -->
+
                 <p>
                     I made this little place for you,
                     for whenever you need it.
                 </p>
 
+
             </section>
 
 
 
-            <!-- ==========================================
-                 MAIN NAVIGATION
-            ========================================== -->
+            <!-- ======================================
+                 FOUR MAIN PAGES
+            ====================================== -->
 
             <section class="choices">
 
 
                 <!-- I MISS YOU -->
 
-                <a class="choice" href="miss-you.html">
+                <a
+                    class="choice"
+                    href="miss-you.html">
 
                     <span>
 
@@ -623,6 +737,7 @@
                         <br>
 
                         <!-- ✏️ CHANGE THIS -->
+
                         I miss you
 
                         <div class="tiny">
@@ -637,7 +752,9 @@
 
                 <!-- I'M SAD -->
 
-                <a class="choice" href="sad.html">
+                <a
+                    class="choice"
+                    href="sad.html">
 
                     <span>
 
@@ -646,6 +763,7 @@
                         <br>
 
                         <!-- ✏️ CHANGE THIS -->
+
                         I'm sad
 
                         <div class="tiny">
@@ -660,7 +778,9 @@
 
                 <!-- LOOK BACK -->
 
-                <a class="choice" href="look-back.html">
+                <a
+                    class="choice"
+                    href="look-back.html">
 
                     <span>
 
@@ -669,6 +789,7 @@
                         <br>
 
                         <!-- ✏️ CHANGE THIS -->
+
                         Look back
 
                         <div class="tiny">
@@ -683,7 +804,9 @@
 
                 <!-- OUR STORY -->
 
-                <a class="choice" href="story.html">
+                <a
+                    class="choice"
+                    href="story.html">
 
                     <span>
 
@@ -692,6 +815,7 @@
                         <br>
 
                         <!-- ✏️ CHANGE THIS -->
+
                         Our story
 
                         <div class="tiny">
@@ -710,9 +834,12 @@
             <div class="footer-note">
 
                 <!-- ✏️ CHANGE THIS -->
+
                 made with questionable amounts of affection
 
-                <span class="heart">♡</span>
+                <span class="heart">
+                    ♡
+                </span>
 
             </div>
 
@@ -734,7 +861,8 @@
            INTRO TEXT
         ========================================== */
 
-        // ✏️ CHANGE THESE LINES IF YOU WANT TO
+        // ✏️ CHANGE THESE IF YOU WANT
+
         const lines = [
 
             "hello",
@@ -758,7 +886,8 @@
         ];
 
 
-        // Controls how long each line stays on screen
+        // ✏️ CHANGE THESE NUMBERS
+        // if you want the dialogue faster/slower
 
         const timings = [
 
@@ -851,6 +980,66 @@
                 document.getElementById("sideMenu");
 
             menu.classList.toggle("open");
+
+        }
+
+
+
+        /* ==========================================
+           SECRET BUTTON
+        ========================================== */
+
+        let secretClicks = 0;
+
+
+        const secretMessages = [
+
+            "don't click me",
+
+            "stop",
+
+            "go away",
+
+            "it's a secret",
+
+            "...fine.",
+
+            "okay, you win ♡"
+
+        ];
+
+
+        function secretClicked() {
+
+            const button =
+                document.getElementById("secretButton");
+
+
+            secretClicks++;
+
+
+            if (secretClicks < secretMessages.length) {
+
+                button.textContent =
+                    secretMessages[secretClicks];
+
+            }
+
+
+            else {
+
+                button.textContent =
+                    "okay, you win ♡";
+
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "secret.html";
+
+                }, 800);
+
+            }
 
         }
 
