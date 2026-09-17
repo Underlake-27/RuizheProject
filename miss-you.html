@@ -519,6 +519,160 @@
 
             animation: flyLove 2.2s ease forwards;
         }
+        /* ==========================================
+   MEGA HUG
+========================================== */
+
+.mega-love {
+
+    position: fixed;
+
+    z-index: 300;
+
+    pointer-events: none;
+
+    font-size: 280px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+
+    animation:
+        megaHugAnimation 3.5s ease forwards;
+}
+
+
+@keyframes megaHugAnimation {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(0)
+            rotate(-15deg);
+    }
+
+
+    20% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.2)
+            rotate(5deg);
+    }
+
+
+    40% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1)
+            rotate(-3deg);
+    }
+
+
+    75% {
+
+        opacity: 1;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.05)
+            rotate(3deg);
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.4)
+            rotate(10deg);
+    }
+
+}
+
+
+
+/* ==========================================
+   LONG KISS
+========================================== */
+
+.long-kiss {
+
+    position: fixed;
+
+    z-index: 300;
+
+    pointer-events: none;
+
+    font-size: 110px;
+
+    animation:
+        longKissAnimation 5s ease forwards;
+}
+
+
+@keyframes longKissAnimation {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.2)
+            rotate(-20deg);
+    }
+
+
+    15% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.2)
+            rotate(8deg);
+    }
+
+
+    30% {
+
+        transform:
+            scale(1)
+            rotate(-5deg);
+    }
+
+
+    75% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.05)
+            rotate(5deg);
+    }
+
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.5)
+            rotate(15deg);
+    }
+
+}
 
 
         @keyframes flyLove {
@@ -999,89 +1153,221 @@
            HUGS + KISSES
         ========================================== */
 
-        function sendLove(type) {
+function sendLove(type) {
+
+    /*
+    ==========================================
+    RANDOM LOVE ATTACKS
+    ==========================================
+
+    Most clicks are normal.
+
+    Occasionally:
+    - mega hug
+    - long kiss
+    - too many kisses
+
+    The randomness makes it a little
+    unpredictable and silly :)
+    */
 
 
-            /*
-                These are currently emoji placeholders.
+    if (type === "hug") {
 
-                Once you give me your hug/kiss pictures,
-                we'll replace these with your actual images.
-            */
+        const random = Math.random();
 
+        if (random < 0.05) {
 
-            const love = document.createElement("div");
+            megaHug();
 
-            love.className = "flying-love";
+        } else {
 
+            normalHug();
 
-            if (type === "hug") {
+        }
 
-                love.textContent = "🫂";
-
-            }
-
-            else {
-
-                love.textContent = "💋";
-
-            }
+    }
 
 
-            /*
-                Random position around the screen
-            */
+    else if (type === "kiss") {
 
-            const sides = [
+        const random = Math.random();
 
-                {
-                    left: Math.random() * 25 + "%",
-                    top: Math.random() * 70 + "%"
-                },
+        if (random < 0.20) {
 
-                {
-                    left: Math.random() * 70 + "%",
-                    top: Math.random() * 20 + "%"
-                },
+            tooManyKisses();
 
-                {
-                    left: Math.random() * 80 + "%",
-                    top: Math.random() * 70 + "%"
-                }
+        }
 
-            ];
+        else if (random < 0.35) {
+
+            longKiss();
+
+        }
+
+        else {
+
+            normalKiss();
+
+        }
+
+    }
+
+}
+
+/* ==========================================
+   NORMAL HUG
+========================================== */
+
+function normalHug() {
+
+    const love = document.createElement("div");
+
+    love.className = "flying-love";
+
+    love.textContent = "🫂";
+
+    randomPosition(love);
+
+    love.style.fontSize =
+        (65 + Math.random() * 35) + "px";
+
+    document.body.appendChild(love);
+
+    playSound("hug");
+
+    setTimeout(() => {
+
+        love.remove();
+
+    }, 2200);
+
+}
 
 
-            const position =
-                sides[Math.floor(Math.random() * sides.length)];
+
+/* ==========================================
+   MEGA HUG
+========================================== */
+
+function megaHug() {
+
+    const love = document.createElement("div");
+
+    love.className = "mega-love";
+
+    love.textContent = "🫂";
+
+    love.style.left = "50%";
+
+    love.style.top = "50%";
+
+    document.body.appendChild(love);
+
+    playSound("mega-hug");
+
+    setTimeout(() => {
+
+        love.remove();
+
+    }, 3500);
+
+}
 
 
-            love.style.left = position.left;
 
-            love.style.top = position.top;
+/* ==========================================
+   NORMAL KISS
+========================================== */
+
+function normalKiss() {
+
+    const love = document.createElement("div");
+
+    love.className = "flying-love";
+
+    love.textContent = "💋";
+
+    randomPosition(love);
+
+    love.style.fontSize =
+        (60 + Math.random() * 40) + "px";
+
+    document.body.appendChild(love);
+
+    playSound("kiss");
+
+    setTimeout(() => {
+
+        love.remove();
+
+    }, 2200);
+
+}
 
 
-            /*
-                Random size
-            */
+
+/* ==========================================
+   LONG KISS
+========================================== */
+
+function longKiss() {
+
+    const love = document.createElement("div");
+
+    love.className = "long-kiss";
+
+    love.textContent = "💋";
+
+    randomPosition(love);
+
+    document.body.appendChild(love);
+
+    playSound("long-kiss");
+
+    setTimeout(() => {
+
+        love.remove();
+
+    }, 5000);
+
+}
+
+
+
+/* ==========================================
+   TOO MANY KISSES
+========================================== */
+
+function tooManyKisses() {
+
+    playSound("kiss-attack");
+
+
+    /*
+    Creates a ridiculous number
+    of kisses at once.
+    */
+
+    for (let i = 0; i < 14; i++) {
+
+        setTimeout(() => {
+
+            const love =
+                document.createElement("div");
+
+            love.className =
+                "flying-love";
+
+            love.textContent = "💋";
+
+            randomPosition(love);
 
             love.style.fontSize =
-                (60 + Math.random() * 50) + "px";
-
+                (45 + Math.random() * 60) + "px";
 
             document.body.appendChild(love);
 
-
-            /*
-                Sound effect
-            */
-
-            playSound(type);
-
-
-            /*
-                Remove after animation
-            */
 
             setTimeout(() => {
 
@@ -1089,92 +1375,168 @@
 
             }, 2200);
 
-        }
+        }, i * 100);
 
+    }
+
+}
+
+
+
+/* ==========================================
+   RANDOM SCREEN POSITION
+========================================== */
+
+function randomPosition(element) {
+
+    element.style.left =
+        (5 + Math.random() * 85) + "%";
+
+    element.style.top =
+        (5 + Math.random() * 80) + "%";
+
+}
 
 
         /* ==========================================
            SIMPLE SOUND EFFECTS
         ========================================== */
 
-        function playSound(type) {
+function playSound(type) {
+
+    const AudioContext =
+        window.AudioContext ||
+        window.webkitAudioContext;
 
 
-            const AudioContext =
-                window.AudioContext ||
-                window.webkitAudioContext;
+    if (!AudioContext) return;
 
 
-            if (!AudioContext) return;
+    const audio =
+        new AudioContext();
 
 
-            const audio =
-                new AudioContext();
+    if (type === "mega-hug") {
+
+        /*
+        Two soft notes for the
+        unnecessarily large hug.
+        */
+
+        makeTone(audio, 220, 0.35);
+
+        setTimeout(() => {
+
+            makeTone(audio, 160, 0.45);
+
+        }, 120);
+
+    }
 
 
-            const oscillator =
-                audio.createOscillator();
+    else if (type === "long-kiss") {
+
+        /*
+        A slightly longer
+        little kiss sound.
+        */
+
+        makeTone(audio, 520, 0.7);
+
+    }
 
 
-            const gain =
-                audio.createGain();
+    else if (type === "kiss-attack") {
 
+        /*
+        Several tiny sounds
+        during the kiss attack.
+        */
 
-            oscillator.connect(gain);
+        for (let i = 0; i < 6; i++) {
 
-            gain.connect(audio.destination);
+            setTimeout(() => {
 
+                makeTone(
+                    audio,
+                    450 + Math.random() * 200,
+                    0.15
+                );
 
-            if (type === "hug") {
-
-                /*
-                    Soft little "boop"
-                */
-
-                oscillator.frequency.value = 280;
-
-                oscillator.type = "sine";
-
-            }
-
-            else {
-
-                /*
-                    Higher little kiss sound
-                */
-
-                oscillator.frequency.value = 520;
-
-                oscillator.type = "triangle";
-
-            }
-
-
-            gain.gain.setValueAtTime(
-                0.001,
-                audio.currentTime
-            );
-
-
-            gain.gain.exponentialRampToValueAtTime(
-                0.12,
-                audio.currentTime + 0.03
-            );
-
-
-            gain.gain.exponentialRampToValueAtTime(
-                0.001,
-                audio.currentTime + 0.35
-            );
-
-
-            oscillator.start();
-
-            oscillator.stop(
-                audio.currentTime + 0.35
-            );
+            }, i * 120);
 
         }
+
+    }
+
+
+    else if (type === "kiss") {
+
+        makeTone(audio, 520, 0.3);
+
+    }
+
+
+    else {
+
+        makeTone(audio, 280, 0.3);
+
+    }
+
+}
+
+
+
+/* ==========================================
+   TONE GENERATOR
+========================================== */
+
+function makeTone(audio, frequency, length) {
+
+    const oscillator =
+        audio.createOscillator();
+
+    const gain =
+        audio.createGain();
+
+
+    oscillator.connect(gain);
+
+    gain.connect(audio.destination);
+
+
+    oscillator.frequency.value =
+        frequency;
+
+
+    oscillator.type = "sine";
+
+
+    gain.gain.setValueAtTime(
+        0.001,
+        audio.currentTime
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.12,
+        audio.currentTime + 0.03
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        0.001,
+        audio.currentTime + length
+    );
+
+
+    oscillator.start();
+
+    oscillator.stop(
+        audio.currentTime + length
+    );
+
+}
 
     </script>
 
