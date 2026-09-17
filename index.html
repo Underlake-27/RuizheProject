@@ -856,10 +856,13 @@
 
     <script>
 
- // CHECK IF THE INTRO HAS ALREADY BEEN SEEN
-    if (localStorage.getItem("introSeen") === "true") {
-        // skip the dialogue
-    }
+// CHECK IF THE INTRO HAS ALREADY BEEN SEEN
+const introSeen = localStorage.getItem("introSeen") === "true";
+
+if (introSeen) {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("homepage").classList.add("visible");
+}
         /* ==========================================
            INTRO TEXT
         ========================================== */
@@ -923,21 +926,18 @@
         function showNextLine() {
 
 
-            if (currentLine >= lines.length) {
+if (currentLine >= lines.length) {
 
+    // Remember that the intro has been seen
+    localStorage.setItem("introSeen", "true");
 
-                setTimeout(() => {
+    setTimeout(() => {
+        intro.classList.add("fade-out");
+        homepage.classList.add("visible");
+    }, 1200);
 
-                    intro.classList.add("fade-out");
-
-                    homepage.classList.add("visible");
-
-                }, 1200);
-
-
-                return;
-
-            }
+    return;
+}
 
 
             dialogue.innerHTML = "";
