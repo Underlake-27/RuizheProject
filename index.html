@@ -958,7 +958,7 @@ if (currentLine >= lines.length) {
             dialogue.appendChild(line);
 
 
-            setTimeout(() => {
+                        setTimeout(() => {
 
                 currentLine++;
 
@@ -968,9 +968,9 @@ if (currentLine >= lines.length) {
 
         }
 
-
-        showNextLine();
-
+        if (!introSeen) {
+            showNextLine();
+        }
 
 
         /* ==========================================
