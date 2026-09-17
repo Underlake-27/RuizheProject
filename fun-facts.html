@@ -8,6 +8,10 @@
 
 <style>
 
+/* =========================================================
+   GENERAL
+========================================================= */
+
 * {
     box-sizing: border-box;
 }
@@ -19,9 +23,13 @@ body {
     font-family: Georgia, "Times New Roman", serif;
 }
 
-/* =========================
-   HAMBURGER
-========================= */
+button {
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
 
 .menu-button {
     position: fixed;
@@ -34,17 +42,21 @@ body {
 
     border: 1px solid #2B2607;
     background: #FFFCF0;
-
     color: #2B2607;
 
     font-size: 22px;
-
     cursor: pointer;
+
+    transition: background 0.2s ease;
 }
 
-/* =========================
+.menu-button:hover {
+    background: #f7f0df;
+}
+
+/* =========================================================
    SIDE MENU
-========================= */
+========================================================= */
 
 .side-menu {
     position: fixed;
@@ -87,32 +99,34 @@ body {
 
 .menu-label {
     font-size: 15px;
-
-    margin-top: 25px;
+    margin-top: 30px;
     margin-bottom: 5px;
 }
 
-/* =========================
+/* =========================================================
    PAGE
-========================= */
+========================================================= */
 
 .page {
-    max-width: 1000px;
+    max-width: 900px;
 
     margin: 0 auto;
 
-    padding: 90px 25px 70px;
+    padding: 100px 25px 80px;
 }
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .header {
     text-align: center;
 
-    margin-bottom: 55px;
+    margin-bottom: 70px;
 }
 
 .header h1 {
-    font-size: 40px;
-
+    font-size: 42px;
     font-weight: normal;
 
     margin: 0 0 12px;
@@ -120,142 +134,92 @@ body {
 
 .header p {
     font-size: 15px;
-
-    font-style: italic;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-.fact-section {
-    margin-bottom: 75px;
-}
-
-.section-heading {
-    text-align: center;
-
-    margin-bottom: 30px;
-}
-
-.section-number {
-    font-size: 12px;
-
-    letter-spacing: 2px;
-
-    opacity: 0.65;
-}
-
-.section-heading h2 {
-    font-size: 28px;
-
-    font-weight: normal;
-
-    margin: 5px 0 8px;
-}
-
-.section-heading p {
-    font-size: 13px;
-
     font-style: italic;
 
     margin: 0;
 }
 
-/* =========================
-   FACT GRID
-========================= */
+/* =========================================================
+   CATEGORY
+========================================================= */
 
-.fact-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 18px;
+.fact-section {
+    margin-bottom: 90px;
 }
 
-/* =========================
-   NORMAL FACT CARD
-========================= */
-
-.fact-card {
-    min-height: 150px;
-
-    border: 1px solid #2B2607;
-
-    background: #fffdf5;
-
-    padding: 24px 20px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
+.section-heading {
     text-align: center;
 
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+    margin-bottom: 35px;
 }
 
-.fact-card:hover {
-    transform:
-        translateY(-3px)
-        rotate(-0.5deg);
-
-    background: #fdf9ea;
-}
-
-.fact-number {
+.section-number {
     font-size: 11px;
+    letter-spacing: 3px;
 
     opacity: 0.55;
 
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
-.fact-text {
-    font-size: 16px;
+.section-heading h2 {
+    font-size: 30px;
+    font-weight: normal;
 
-    line-height: 1.5;
+    margin: 0 0 8px;
 }
 
-/* =========================
-   FLIP CARDS
-========================= */
+.section-heading p {
+    font-size: 13px;
+    font-style: italic;
 
-.flip-card {
-    height: 180px;
+    margin: 0;
 
-    perspective: 1000px;
+    opacity: 0.75;
+}
+
+/* =========================================================
+   FLASHCARD AREA
+========================================================= */
+
+.flashcard-wrapper {
+    max-width: 650px;
+
+    margin: 0 auto;
+}
+
+/* =========================================================
+   FLASHCARD
+========================================================= */
+
+.flashcard {
+    width: 100%;
+    height: 300px;
+
+    perspective: 1200px;
 
     cursor: pointer;
+
+    outline: none;
 }
 
-.flip-inner {
+.flashcard-inner {
     position: relative;
 
     width: 100%;
     height: 100%;
 
-    transition:
-        transform 0.65s ease;
+    transition: transform 0.65s ease;
 
     transform-style: preserve-3d;
 }
 
-.flip-card.flipped .flip-inner {
-    transform:
-        rotateY(180deg);
+.flashcard.flipped .flashcard-inner {
+    transform: rotateY(180deg);
 }
 
-.flip-front,
-.flip-back {
+.flashcard-front,
+.flashcard-back {
     position: absolute;
 
     width: 100%;
@@ -265,90 +229,137 @@ body {
 
     border: 1px solid #2B2607;
 
-    background: #fffdf5;
-
-    padding: 20px;
-
     display: flex;
-
     flex-direction: column;
 
     justify-content: center;
-
     align-items: center;
 
     text-align: center;
+
+    padding: 45px;
 }
 
-.flip-front {
+.flashcard-front {
     background: #f7f0df;
 }
 
-.flip-back {
-    transform:
-        rotateY(180deg);
-
+.flashcard-back {
     background: #fffdf5;
+
+    transform: rotateY(180deg);
 }
 
-.flip-label {
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-label {
     font-size: 11px;
 
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 
-    opacity: 0.6;
+    opacity: 0.55;
 
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
 
-.flip-hint {
+.card-text {
+    font-size: 24px;
+
+    line-height: 1.5;
+
+    max-width: 520px;
+}
+
+.card-hint {
+    position: absolute;
+
+    bottom: 25px;
+
     font-size: 12px;
 
     font-style: italic;
 
-    margin-top: 12px;
-
-    opacity: 0.65;
+    opacity: 0.55;
 }
 
-/* =========================
-   SPECIAL LOVE CARD
-========================= */
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-.special-love {
-    grid-column: 1 / -1;
+.card-navigation {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    border-top: 1px solid #2B2607;
+
+    padding-top: 18px;
+}
+
+.card-arrow {
+    width: 50px;
+    height: 42px;
 
     border: 1px solid #2B2607;
 
-    padding: 35px 20px;
+    background: #FFFCF0;
 
-    text-align: center;
+    color: #2B2607;
 
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.15s ease;
+}
+
+.card-arrow:hover {
     background: #f7f0df;
 
-    margin-top: 5px;
+    transform: translateY(-2px);
 }
 
-.special-love .heart {
+.card-counter {
+    font-size: 12px;
+
+    opacity: 0.6;
+}
+
+/* =========================================================
+   SPECIAL LOVE CARD
+========================================================= */
+
+.special-card .flashcard-front,
+.special-card .flashcard-back {
+    background: #f7f0df;
+}
+
+.special-heart {
+    font-size: 34px;
+
+    margin-bottom: 15px;
+}
+
+.special-card .card-text {
     font-size: 28px;
-
-    margin-bottom: 12px;
 }
 
-.special-love p {
-    font-size: 20px;
-
-    margin: 0;
-}
-
-/* =========================
-   QUIZ
-========================= */
+/* =========================================================
+   QUIZ SECTION
+========================================================= */
 
 .quiz-section {
     border-top: 1px solid #2B2607;
 
-    padding-top: 65px;
+    padding-top: 70px;
 
     margin-top: 20px;
 }
@@ -360,127 +371,128 @@ body {
 }
 
 .quiz-heading h2 {
-    font-size: 28px;
-
+    font-size: 30px;
     font-weight: normal;
 
-    margin-bottom: 10px;
+    margin: 0 0 10px;
 }
 
 .quiz-heading p {
     font-size: 13px;
-
     font-style: italic;
+
+    margin: 0;
 }
 
-/* =========================
+/* =========================================================
    QUIZ CARD
-========================= */
+========================================================= */
 
-.quiz-card {
+.quiz-wrapper {
     max-width: 650px;
 
     margin: 0 auto;
+}
+
+.quiz-card {
+    width: 100%;
+    height: 300px;
+
+    perspective: 1200px;
+
+    cursor: pointer;
+
+    outline: none;
+}
+
+.quiz-card-inner {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    transition: transform 0.65s ease;
+
+    transform-style: preserve-3d;
+}
+
+.quiz-card.flipped .quiz-card-inner {
+    transform: rotateY(180deg);
+}
+
+.quiz-front,
+.quiz-back {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
 
     border: 1px solid #2B2607;
 
-    background: #fffdf5;
+    display: flex;
+    flex-direction: column;
 
-    padding: 30px;
-}
+    justify-content: center;
+    align-items: center;
 
-.quiz-progress {
     text-align: center;
 
+    padding: 45px;
+}
+
+.quiz-front {
+    background: #f7f0df;
+}
+
+.quiz-back {
+    background: #fffdf5;
+
+    transform: rotateY(180deg);
+}
+
+.quiz-label {
     font-size: 11px;
 
-    opacity: 0.6;
+    letter-spacing: 2px;
+
+    opacity: 0.55;
 
     margin-bottom: 25px;
 }
 
 .quiz-question {
-    text-align: center;
-
-    font-size: 20px;
+    font-size: 23px;
 
     line-height: 1.5;
 
-    min-height: 65px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    margin-bottom: 25px;
+    max-width: 520px;
 }
 
-.quiz-options {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 10px;
-}
-
-.quiz-option {
-    border: 1px solid #2B2607;
-
-    background: #FFFCF0;
-
-    color: #2B2607;
-
-    padding: 14px 10px;
-
-    min-height: 55px;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-    font-size: 14px;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        transform 0.15s ease;
-}
-
-.quiz-option:hover:not(:disabled) {
-    background: #f7f0df;
-
-    transform:
-        translateY(-2px);
-}
-
-.quiz-option:disabled {
-    cursor: default;
-}
-
-/* =========================
-   QUIZ RESULT
-========================= */
-
-.quiz-result {
-    text-align: center;
-
-    margin-top: 22px;
-
-    min-height: 45px;
-
-    font-size: 14px;
+.quiz-answer {
+    font-size: 28px;
 
     line-height: 1.5;
+
+    max-width: 520px;
 }
 
-/* =========================
+.quiz-hint {
+    position: absolute;
+
+    bottom: 25px;
+
+    font-size: 12px;
+
+    font-style: italic;
+
+    opacity: 0.55;
+}
+
+/* =========================================================
    QUIZ NAVIGATION
-========================= */
+========================================================= */
 
 .quiz-navigation {
     display: flex;
@@ -489,7 +501,7 @@ body {
 
     justify-content: space-between;
 
-    margin-top: 25px;
+    margin-top: 20px;
 
     border-top: 1px solid #2B2607;
 
@@ -497,8 +509,7 @@ body {
 }
 
 .quiz-arrow {
-    width: 48px;
-
+    width: 50px;
     height: 42px;
 
     border: 1px solid #2B2607;
@@ -506,11 +517,6 @@ body {
     background: #FFFCF0;
 
     color: #2B2607;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
 
     font-size: 22px;
 
@@ -521,122 +527,129 @@ body {
         transform 0.15s ease;
 }
 
-.quiz-arrow:hover:not(:disabled) {
+.quiz-arrow:hover {
     background: #f7f0df;
 
-    transform:
-        translateY(-2px);
-}
-
-.quiz-arrow:disabled {
-    opacity: 0.25;
-
-    cursor: default;
+    transform: translateY(-2px);
 }
 
 .quiz-counter {
     font-size: 12px;
 
-    opacity: 0.65;
+    opacity: 0.6;
 }
 
-/* =========================
-   FINAL QUIZ
-========================= */
+/* =========================================================
+   FINAL QUIZ MESSAGE
+========================================================= */
 
 .quiz-final {
+    display: none;
+
     max-width: 650px;
 
     margin: 0 auto;
 
-    text-align: center;
-
-    display: none;
-
     border: 1px solid #2B2607;
 
-    padding: 40px 25px;
-
     background: #f7f0df;
+
+    padding: 45px 25px;
+
+    text-align: center;
 }
 
 .quiz-final h3 {
-    font-size: 30px;
+    font-size: 28px;
 
     font-weight: normal;
 
-    margin-bottom: 15px;
+    margin: 0 0 15px;
 }
 
 .quiz-final p {
     font-size: 15px;
 
     line-height: 1.6;
+
+    margin: 0;
 }
 
 .restart-button {
+    margin-top: 25px;
+
     border: 1px solid #2B2607;
 
-    background: transparent;
+    background: #FFFCF0;
 
     color: #2B2607;
 
     padding: 11px 22px;
 
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-size: 14px;
 
     cursor: pointer;
-
-    margin-top: 15px;
 }
 
 .restart-button:hover {
-    background: #FFFCF0;
+    background: #fffdf5;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* =========================================================
+   FOOTER
+========================================================= */
 
-@media (max-width: 750px) {
+.footer {
+    text-align: center;
+
+    margin-top: 80px;
+
+    font-size: 12px;
+
+    opacity: 0.55;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
 
     .page {
         padding:
-            80px 15px 50px;
+            85px 15px 60px;
     }
 
     .header h1 {
-        font-size: 32px;
+        font-size: 34px;
     }
 
-    .fact-grid {
-        grid-template-columns:
-            1fr 1fr;
+    .section-heading h2 {
+        font-size: 26px;
     }
 
-}
-
-@media (max-width: 500px) {
-
-    .fact-grid {
-        grid-template-columns:
-            1fr;
-    }
-
-    .quiz-options {
-        grid-template-columns:
-            1fr;
-    }
-
-    .header h1 {
-        font-size: 29px;
-    }
-
+    .flashcard,
     .quiz-card {
-        padding: 22px 15px;
+        height: 320px;
+    }
+
+    .flashcard-front,
+    .flashcard-back,
+    .quiz-front,
+    .quiz-back {
+        padding: 30px 20px;
+    }
+
+    .card-text {
+        font-size: 21px;
+    }
+
+    .quiz-question {
+        font-size: 20px;
+    }
+
+    .quiz-answer {
+        font-size: 24px;
     }
 
 }
@@ -648,9 +661,9 @@ body {
 <body>
 
 
-<!-- ==================================================
-     HAMBURGER
-================================================== -->
+<!-- =========================================================
+     MENU BUTTON
+========================================================= -->
 
 <button
     class="menu-button"
@@ -662,9 +675,9 @@ body {
 </button>
 
 
-<!-- ==================================================
+<!-- =========================================================
      SIDE MENU
-================================================== -->
+========================================================= -->
 
 <nav
     class="side-menu"
@@ -705,22 +718,26 @@ body {
     </a>
 
     <a href="virtual-dates.html">
-        virtual dates
+        calander
     </a>
 
     <a href="love-game.html">
-        little things
+        minigames
     </a>
 
 </nav>
 
 
-<!-- ==================================================
+<!-- =========================================================
      PAGE
-================================================== -->
+========================================================= -->
 
 <main class="page">
 
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header class="header">
 
@@ -735,9 +752,9 @@ body {
 </header>
 
 
-<!-- ==================================================
+<!-- =========================================================
      COMMON FACTS
-================================================== -->
+========================================================= -->
 
 <section class="fact-section">
 
@@ -759,297 +776,102 @@ body {
 </div>
 
 
-<div class="fact-grid">
+<div class="flashcard-wrapper">
+
+    <div
+        class="flashcard"
+        id="commonCard"
+        tabindex="0">
+
+        <div class="flashcard-inner">
 
 
-<!-- FLIP 01 -->
+            <div class="flashcard-front">
 
-<div
-    class="flip-card"
-    tabindex="0">
+                <div
+                    class="card-label"
+                    id="commonLabel">
 
-    <div class="flip-inner">
+                    FACT #01
 
-        <div class="flip-front">
+                </div>
 
-            <div class="flip-label">
-                FUN FACT #01
+
+                <div
+                    class="card-text"
+                    id="commonFront">
+
+                </div>
+
+
+                <div class="card-hint">
+                    click to reveal ♡
+                </div>
+
             </div>
 
-            <div class="fact-text">
-                something about my favourite things...
+
+            <div class="flashcard-back">
+
+                <div
+                    class="card-text"
+                    id="commonBack">
+
+                </div>
+
+
+                <div class="card-hint">
+                    click to flip back
+                </div>
+
             </div>
 
-            <div class="flip-hint">
-                click to reveal ♡
-            </div>
-
-        </div>
-
-
-        <div class="flip-back">
-
-            <div class="fact-text">
-                My favorite color is black
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- FLIP 02 -->
-
-<div
-    class="flip-card"
-    tabindex="0">
-
-    <div class="flip-inner">
-
-        <div class="flip-front">
-
-            <div class="flip-label">
-                FUN FACT #02
-            </div>
-
-            <div class="fact-text">
-                my favourite comfort food...
-            </div>
-
-            <div class="flip-hint">
-                click to reveal ♡
-            </div>
-
-        </div>
-
-
-        <div class="flip-back">
-
-            <div class="fact-text">
-                Favorite food is udon
-            </div>
 
         </div>
 
     </div>
 
-</div>
+
+    <div class="card-navigation">
+
+        <button
+            class="card-arrow"
+            id="commonPrev"
+            type="button">
+
+            ←
+
+        </button>
 
 
-<!-- FLIP 03 -->
+        <span
+            class="card-counter"
+            id="commonCounter">
 
-<div
-    class="flip-card"
-    tabindex="0">
+            1 / 11
 
-    <div class="flip-inner">
-
-        <div class="flip-front">
-
-            <div class="flip-label">
-                FUN FACT #03
-            </div>
-
-            <div class="fact-text">
-                my favourite animals...
-            </div>
-
-            <div class="flip-hint">
-                click to reveal ♡
-            </div>
-
-        </div>
+        </span>
 
 
-        <div class="flip-back">
+        <button
+            class="card-arrow"
+            id="commonNext"
+            type="button">
 
-            <div class="fact-text">
-                Favorite animals are lobsters
-            </div>
+            →
 
-        </div>
+        </button>
 
     </div>
-
-</div>
-
-
-<!-- FLIP 04 -->
-
-<div
-    class="flip-card"
-    tabindex="0">
-
-    <div class="flip-inner">
-
-        <div class="flip-front">
-
-            <div class="flip-label">
-                FUN FACT #04
-            </div>
-
-            <div class="fact-text">
-                an artist I really like...
-            </div>
-
-            <div class="flip-hint">
-                click to reveal ♡
-            </div>
-
-        </div>
-
-
-        <div class="flip-back">
-
-            <div class="fact-text">
-                Favorite artist are the Gorillaz
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- NORMAL 05 -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #05
-    </div>
-
-    <div class="fact-text">
-        I don’t like celery and asparagus
-    </div>
-
-</div>
-
-
-<!-- NORMAL 06 -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #06
-    </div>
-
-    <div class="fact-text">
-        I am very lazy
-    </div>
-
-</div>
-
-
-<!-- NORMAL 07 -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #07
-    </div>
-
-    <div class="fact-text">
-        I love to sleep
-    </div>
-
-</div>
-
-
-<!-- FLIP 08 -->
-
-<div
-    class="flip-card"
-    tabindex="0">
-
-    <div class="flip-inner">
-
-        <div class="flip-front">
-
-            <div class="flip-label">
-                FUN FACT #08
-            </div>
-
-            <div class="fact-text">
-                two sports I like...
-            </div>
-
-            <div class="flip-hint">
-                click to reveal ♡
-            </div>
-
-        </div>
-
-
-        <div class="flip-back">
-
-            <div class="fact-text">
-                I like basketball and badminton
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- NORMAL 09 -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #09
-    </div>
-
-    <div class="fact-text">
-        I love my dogs
-    </div>
-
-</div>
-
-
-<!-- NORMAL 10 -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #10
-    </div>
-
-    <div class="fact-text">
-        I am cool toned and winter
-    </div>
-
-</div>
-
-
-<!-- NORMAL 11 -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #11
-    </div>
-
-    <div class="fact-text">
-        I like sweet things
-    </div>
-
-</div>
-
 
 </div>
 
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      LOVE FACTS
-================================================== -->
+========================================================= -->
 
 <section class="fact-section">
 
@@ -1071,304 +893,102 @@ body {
 </div>
 
 
-<div class="fact-grid">
+<div class="flashcard-wrapper">
+
+    <div
+        class="flashcard"
+        id="loveCard"
+        tabindex="0">
+
+        <div class="flashcard-inner">
 
 
-<!-- FLIP -->
+            <div class="flashcard-front">
 
-<div
-    class="flip-card"
-    tabindex="0">
+                <div
+                    class="card-label"
+                    id="loveLabel">
 
-    <div class="flip-inner">
+                    LOVE FACT #01
 
-        <div class="flip-front">
+                </div>
 
-            <div class="flip-label">
-                LOVE FACT #01
+
+                <div
+                    class="card-text"
+                    id="loveFront">
+
+                </div>
+
+
+                <div class="card-hint">
+                    click to reveal ♡
+                </div>
+
             </div>
 
-            <div class="fact-text">
-                something I really love...
+
+            <div class="flashcard-back">
+
+                <div
+                    class="card-text"
+                    id="loveBack">
+
+                </div>
+
+
+                <div class="card-hint">
+                    click to flip back
+                </div>
+
             </div>
 
-            <div class="flip-hint">
-                click to reveal ♡
-            </div>
-
-        </div>
-
-
-        <div class="flip-back">
-
-            <div class="fact-text">
-                I love hugs and cuddles
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- FLIP -->
-
-<div
-    class="flip-card"
-    tabindex="0">
-
-    <div class="flip-inner">
-
-        <div class="flip-front">
-
-            <div class="flip-label">
-                LOVE FACT #02
-            </div>
-
-            <div class="fact-text">
-                my favourite kind of kisses...
-            </div>
-
-            <div class="flip-hint">
-                click to reveal ♡
-            </div>
-
-        </div>
-
-
-        <div class="flip-back">
-
-            <div class="fact-text">
-                I like small kisses all over my face
-            </div>
 
         </div>
 
     </div>
 
-</div>
+
+    <div class="card-navigation">
+
+        <button
+            class="card-arrow"
+            id="lovePrev"
+            type="button">
+
+            ←
+
+        </button>
 
 
-<!-- NORMAL -->
+        <span
+            class="card-counter"
+            id="loveCounter">
 
-<div class="fact-card">
+            1 / 13
 
-    <div class="fact-number">
-        LOVE FACT #03
-    </div>
-
-    <div class="fact-text">
-        I love your cute face
-    </div>
-
-</div>
+        </span>
 
 
-<!-- NORMAL -->
+        <button
+            class="card-arrow"
+            id="loveNext"
+            type="button">
 
-<div class="fact-card">
+            →
 
-    <div class="fact-number">
-        LOVE FACT #04
-    </div>
-
-    <div class="fact-text">
-        When I am waiting for you I cannot do anything productive
-    </div>
-
-</div>
-
-
-<!-- NORMAL -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        LOVE FACT #05
-    </div>
-
-    <div class="fact-text">
-        I feel like you I ask you more questions than you ask me
-    </div>
-
-</div>
-
-
-<!-- FLIP -->
-
-<div
-    class="flip-card"
-    tabindex="0">
-
-    <div class="flip-inner">
-
-        <div class="flip-front">
-
-            <div class="flip-label">
-                LOVE FACT #06
-            </div>
-
-            <div class="fact-text">
-                my love language...
-            </div>
-
-            <div class="flip-hint">
-                click to reveal ♡
-            </div>
-
-        </div>
-
-
-        <div class="flip-back">
-
-            <div class="fact-text">
-                My love language is quality time
-            </div>
-
-        </div>
+        </button>
 
     </div>
-
-</div>
-
-
-<!-- NORMAL -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        LOVE FACT #07
-    </div>
-
-    <div class="fact-text">
-        I like dolls
-    </div>
-
-</div>
-
-
-<!-- NORMAL -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        LOVE FACT #08
-    </div>
-
-    <div class="fact-text">
-        I like to hug your tummy when we sleep
-    </div>
-
-</div>
-
-
-<!-- FLIP -->
-
-<div
-    class="flip-card"
-    tabindex="0">
-
-    <div class="flip-inner">
-
-        <div class="flip-front">
-
-            <div class="flip-label">
-                LOVE FACT #09
-            </div>
-
-            <div class="fact-text">
-                two things I really love about you...
-            </div>
-
-            <div class="flip-hint">
-                click to reveal ♡
-            </div>
-
-        </div>
-
-
-        <div class="flip-back">
-
-            <div class="fact-text">
-                I like your warm smile and beautiful eyes
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- NORMAL -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        LOVE FACT #10
-    </div>
-
-    <div class="fact-text">
-        Your face is too cute sometimes
-    </div>
-
-</div>
-
-
-<!-- NORMAL -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        LOVE FACT #11
-    </div>
-
-    <div class="fact-text">
-        I miss you everyday
-    </div>
-
-</div>
-
-
-<!-- NORMAL -->
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        LOVE FACT #12
-    </div>
-
-    <div class="fact-text">
-        Sometimes I’m scared to bother you so I try not to text you too much when you are busy
-    </div>
-
-</div>
-
-
-<!-- SPECIAL -->
-
-<div class="special-love">
-
-    <div class="heart">
-        ♡
-    </div>
-
-    <p>
-        I love you the most
-    </p>
-
-</div>
-
 
 </div>
 
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      PERSONALITY FACTS
-================================================== -->
+========================================================= -->
 
 <section class="fact-section">
 
@@ -1390,173 +1010,102 @@ body {
 </div>
 
 
-<div class="fact-grid">
+<div class="flashcard-wrapper">
+
+    <div
+        class="flashcard"
+        id="personalityCard"
+        tabindex="0">
+
+        <div class="flashcard-inner">
 
 
-<div class="fact-card">
+            <div class="flashcard-front">
 
-    <div class="fact-number">
-        FACT #01
+                <div
+                    class="card-label"
+                    id="personalityLabel">
+
+                    PERSONALITY FACT #01
+
+                </div>
+
+
+                <div
+                    class="card-text"
+                    id="personalityFront">
+
+                </div>
+
+
+                <div class="card-hint">
+                    click to reveal ♡
+                </div>
+
+            </div>
+
+
+            <div class="flashcard-back">
+
+                <div
+                    class="card-text"
+                    id="personalityBack">
+
+                </div>
+
+
+                <div class="card-hint">
+                    click to flip back
+                </div>
+
+            </div>
+
+
+        </div>
+
     </div>
 
-    <div class="fact-text">
-        I am self aware but too lazy to do anything about it
+
+    <div class="card-navigation">
+
+        <button
+            class="card-arrow"
+            id="personalityPrev"
+            type="button">
+
+            ←
+
+        </button>
+
+
+        <span
+            class="card-counter"
+            id="personalityCounter">
+
+            1 / 12
+
+        </span>
+
+
+        <button
+            class="card-arrow"
+            id="personalityNext"
+            type="button">
+
+            →
+
+        </button>
+
     </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #02
-    </div>
-
-    <div class="fact-text">
-        I get tired easier and can sleep all day
-    </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #03
-    </div>
-
-    <div class="fact-text">
-        I have trouble sleeping if I am anxious or worried
-    </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #04
-    </div>
-
-    <div class="fact-text">
-        I am often forgetful and lose concentration easily
-    </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #05
-    </div>
-
-    <div class="fact-text">
-        I am good at art but bad at singing
-    </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #06
-    </div>
-
-    <div class="fact-text">
-        I prefer comfortable clothes over pretty clothes
-    </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #07
-    </div>
-
-    <div class="fact-text">
-        I don’t like to exercise
-    </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #08
-    </div>
-
-    <div class="fact-text">
-        I need to stay with someone to help me be motivated
-    </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #09
-    </div>
-
-    <div class="fact-text">
-        I love to spend time with my loved ones
-    </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #10
-    </div>
-
-    <div class="fact-text">
-        I care about other’s happiness over my own
-    </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #11
-    </div>
-
-    <div class="fact-text">
-        I sometimes think I am not good enough to be your girlfriend
-    </div>
-
-</div>
-
-
-<div class="fact-card">
-
-    <div class="fact-number">
-        FACT #12
-    </div>
-
-    <div class="fact-text">
-        I like that I can be immature and childish around you
-    </div>
-
-</div>
-
 
 </div>
 
 </section>
 
 
-<!-- ==================================================
+<!-- =========================================================
      QUIZ
-================================================== -->
+========================================================= -->
 
 <section class="quiz-section">
 
@@ -1575,45 +1124,82 @@ body {
 
 
 <div
-    class="quiz-card"
-    id="quizCard">
+    class="quiz-wrapper"
+    id="quizWrapper">
 
 
     <div
-        class="quiz-progress"
-        id="quizProgress">
+        class="quiz-card"
+        id="quizCard"
+        tabindex="0">
 
-        question 1 of 12
+
+        <div class="quiz-card-inner">
+
+
+            <!-- QUESTION -->
+
+            <div class="quiz-front">
+
+                <div
+                    class="quiz-label"
+                    id="quizLabel">
+
+                    QUESTION #01
+
+                </div>
+
+
+                <div
+                    class="quiz-question"
+                    id="quizQuestion">
+
+                </div>
+
+
+                <div class="quiz-hint">
+                    click to reveal ♡
+                </div>
+
+            </div>
+
+
+            <!-- ANSWER -->
+
+            <div class="quiz-back">
+
+                <div class="quiz-label">
+                    ANSWER ♡
+                </div>
+
+
+                <div
+                    class="quiz-answer"
+                    id="quizAnswer">
+
+                </div>
+
+
+                <div class="quiz-hint">
+                    click to flip back
+                </div>
+
+            </div>
+
+
+        </div>
 
     </div>
 
 
-    <div
-        class="quiz-question"
-        id="quizQuestion">
-    </div>
-
-
-    <div
-        class="quiz-options"
-        id="quizOptions">
-    </div>
-
-
-    <div
-        class="quiz-result"
-        id="quizResult">
-    </div>
-
-
-    <!-- ARROWS -->
+    <!-- QUIZ NAVIGATION -->
 
     <div class="quiz-navigation">
 
 
         <button
             class="quiz-arrow"
-            id="previousButton"
+            id="quizPrev"
             type="button">
 
             ←
@@ -1632,7 +1218,7 @@ body {
 
         <button
             class="quiz-arrow"
-            id="nextButton"
+            id="quizNext"
             type="button">
 
             →
@@ -1646,19 +1232,22 @@ body {
 </div>
 
 
-<!-- FINAL RESULT -->
+<!-- FINAL MESSAGE -->
 
 <div
     class="quiz-final"
     id="quizFinal">
 
 
-    <h3 id="finalTitle">
-        ♡
+    <h3>
+        you made it through all of them ♡
     </h3>
 
 
-    <p id="finalMessage">
+    <p>
+        hopefully you remembered at least some of these...
+        <br>
+        but now you know a little more about me.
     </p>
 
 
@@ -1667,7 +1256,7 @@ body {
         id="restartButton"
         type="button">
 
-        try again
+        start again
 
     </button>
 
@@ -1678,661 +1267,846 @@ body {
 </section>
 
 
+<div class="footer">
+
+    made with love ♡
+
+</div>
+
+
 </main>
 
 
 <script>
 
-/* ==================================================
+/* =========================================================
    MENU
-================================================== */
+========================================================= */
 
 const menuButton =
-    document.getElementById(
-        "menuButton"
-    );
+    document.getElementById("menuButton");
 
 const sideMenu =
-    document.getElementById(
-        "sideMenu"
-    );
+    document.getElementById("sideMenu");
 
 
 menuButton.addEventListener(
     "click",
     function() {
 
-        sideMenu.classList.toggle(
-            "open"
-        );
+        sideMenu.classList.toggle("open");
 
     }
 );
 
 
-/* ==================================================
-   FLIP CARDS
-================================================== */
+/* =========================================================
+   COMMON FACTS
+========================================================= */
 
-const flipCards =
-    document.querySelectorAll(
-        ".flip-card"
-    );
-
-
-flipCards.forEach(
-    function(card) {
-
-        function flipCard() {
-
-            card.classList.toggle(
-                "flipped"
-            );
-
-        }
-
-
-        card.addEventListener(
-            "click",
-            flipCard
-        );
-
-
-        card.addEventListener(
-            "keydown",
-            function(event) {
-
-                if (
-                    event.key === "Enter" ||
-                    event.key === " "
-                ) {
-
-                    event.preventDefault();
-
-                    flipCard();
-
-                }
-
-            }
-        );
-
-    }
-);
-
-
-/* ==================================================
-   QUIZ QUESTIONS
-================================================== */
-
-const questions = [
+const commonFacts = [
 
     {
-        question:
-            "What is my favorite food?",
-
-        options: [
-            "Udon",
-            "Pizza",
-            "Sushi",
-            "Ramen"
-        ],
-
-        answer: 0
+        front: "My favorite color is...",
+        back: "black"
     },
 
-
     {
-        question:
-            "What animals are my favorite?",
-
-        options: [
-            "Cats",
-            "Lobsters",
-            "Penguins",
-            "Rabbits"
-        ],
-
-        answer: 1
+        front: "My favorite food is...",
+        back: "udon"
     },
 
-
     {
-        question:
-            "What is my love language?",
-
-        options: [
-            "Gifts",
-            "Words of affirmation",
-            "Quality time",
-            "Acts of service"
-        ],
-
-        answer: 2
+        front: "My favorite animals are...",
+        back: "lobsters"
     },
 
-
     {
-        question:
-            "What do I like to hug when we sleep?",
-
-        options: [
-            "Your arm",
-            "Your tummy",
-            "Your leg",
-            "Your pillow"
-        ],
-
-        answer: 1
+        front: "My favorite artist is...",
+        back: "the Gorillaz"
     },
 
-
     {
-        question:
-            "What do I prefer wearing?",
-
-        options: [
-            "Pretty clothes",
-            "Formal clothes",
-            "Comfortable clothes",
-            "Matching clothes"
-        ],
-
-        answer: 2
+        front: "A couple of foods I really don't like...",
+        back: "celery and asparagus"
     },
 
-
     {
-        question:
-            "Which two sports do I like?",
-
-        options: [
-            "Tennis and soccer",
-            "Basketball and badminton",
-            "Swimming and tennis",
-            "Soccer and badminton"
-        ],
-
-        answer: 1
+        front: "Something I definitely am...",
+        back: "very lazy"
     },
 
-
     {
-        question:
-            "What am I better at?",
-
-        options: [
-            "Singing",
-            "Dancing",
-            "Art",
-            "Cooking"
-        ],
-
-        answer: 2
+        front: "Something I love doing...",
+        back: "sleeping"
     },
 
-
     {
-        question:
-            "What do I sometimes worry about as your girlfriend?",
-
-        options: [
-            "That I am not good enough",
-            "That I talk too much",
-            "That I am too competitive",
-            "That I spend too much money"
-        ],
-
-        answer: 0
+        front: "Two sports I like...",
+        back: "basketball and badminton"
     },
 
-
     {
-        question:
-            "What is my dog's name?",
-
-        options: [
-            "Lucky",
-            "Milo",
-            "Coco",
-            "Max"
-        ],
-
-        answer: 0
+        front: "My dogs...",
+        back: "I love my dogs"
     },
 
-
     {
-        question:
-            "What is my dream car?",
-
-        options: [
-            "Porsche",
-            "Rolls Royce",
-            "Lamborghini",
-            "Mercedes"
-        ],
-
-        answer: 1
+        front: "My color season...",
+        back: "I am cool toned and winter"
     },
 
-
     {
-        question:
-            "What was my favorite subject in high school?",
-
-        options: [
-            "Mathematics",
-            "English",
-            "Biology",
-            "History"
-        ],
-
-        answer: 2
-    },
-
-
-    {
-        question:
-            "What is my least favorite color?",
-
-        options: [
-            "Pink",
-            "Green",
-            "Blue",
-            "Purple"
-        ],
-
-        answer: 3
+        front: "Something I like...",
+        back: "sweet things"
     }
 
 ];
 
 
-/* ==================================================
-   QUIZ VARIABLES
-================================================== */
-
-let currentQuestion = 0;
-
-let score = 0;
-
-let answeredQuestions = [];
+let commonIndex = 0;
 
 
-const quizProgress =
-    document.getElementById(
-        "quizProgress"
-    );
+const commonCard =
+    document.getElementById("commonCard");
 
-const quizQuestion =
-    document.getElementById(
-        "quizQuestion"
-    );
+const commonFront =
+    document.getElementById("commonFront");
 
-const quizOptions =
-    document.getElementById(
-        "quizOptions"
-    );
+const commonBack =
+    document.getElementById("commonBack");
 
-const quizResult =
-    document.getElementById(
-        "quizResult"
-    );
+const commonLabel =
+    document.getElementById("commonLabel");
 
-const previousButton =
-    document.getElementById(
-        "previousButton"
-    );
+const commonCounter =
+    document.getElementById("commonCounter");
 
-const nextButton =
-    document.getElementById(
-        "nextButton"
-    );
+const commonPrev =
+    document.getElementById("commonPrev");
 
-const quizCounter =
-    document.getElementById(
-        "quizCounter"
-    );
+const commonNext =
+    document.getElementById("commonNext");
+
+
+function loadCommonCard() {
+
+    const fact =
+        commonFacts[commonIndex];
+
+
+    commonFront.textContent =
+        fact.front;
+
+
+    commonBack.textContent =
+        fact.back;
+
+
+    commonLabel.textContent =
+        "FACT #" +
+        String(commonIndex + 1).padStart(2, "0");
+
+
+    commonCounter.textContent =
+        (commonIndex + 1) +
+        " / " +
+        commonFacts.length;
+
+
+    commonCard.classList.remove("flipped");
+
+
+    commonPrev.disabled =
+        commonIndex === 0;
+
+}
+
+
+commonCard.addEventListener(
+    "click",
+    function() {
+
+        commonCard.classList.toggle("flipped");
+
+    }
+);
+
+
+commonPrev.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        if (commonIndex > 0) {
+
+            commonIndex--;
+
+            loadCommonCard();
+
+        }
+
+    }
+);
+
+
+commonNext.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        if (
+            commonIndex <
+            commonFacts.length - 1
+        ) {
+
+            commonIndex++;
+
+            loadCommonCard();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   LOVE FACTS
+========================================================= */
+
+const loveFacts = [
+
+    {
+        front: "Something I really love...",
+        back: "I love hugs and cuddles"
+    },
+
+    {
+        front: "My favorite kind of kisses...",
+        back: "I like small kisses all over my face"
+    },
+
+    {
+        front: "Something I love about you...",
+        back: "I love your cute face"
+    },
+
+    {
+        front: "When I'm waiting for you...",
+        back: "I cannot do anything productive"
+    },
+
+    {
+        front: "Something I've noticed about us...",
+        back: "I feel like I ask you more questions than you ask me"
+    },
+
+    {
+        front: "My love language...",
+        back: "quality time"
+    },
+
+    {
+        front: "Something I like...",
+        back: "dolls"
+    },
+
+    {
+        front: "When we sleep...",
+        back: "I like to hug your tummy"
+    },
+
+    {
+        front: "Two things I really love about you...",
+        back: "your warm smile and beautiful eyes"
+    },
+
+    {
+        front: "Sometimes your face is...",
+        back: "too cute"
+    },
+
+    {
+        front: "How often do I miss you?",
+        back: "everyday"
+    },
+
+    {
+        front: "When you're busy...",
+        back: "Sometimes I'm scared to bother you, so I try not to text you too much"
+    },
+
+    {
+        front: "The most important fact...",
+        back: "I love you the most ♡",
+        special: true
+    }
+
+];
+
+
+let loveIndex = 0;
+
+
+const loveCard =
+    document.getElementById("loveCard");
+
+const loveFront =
+    document.getElementById("loveFront");
+
+const loveBack =
+    document.getElementById("loveBack");
+
+const loveLabel =
+    document.getElementById("loveLabel");
+
+const loveCounter =
+    document.getElementById("loveCounter");
+
+const lovePrev =
+    document.getElementById("lovePrev");
+
+const loveNext =
+    document.getElementById("loveNext");
+
+
+function loadLoveCard() {
+
+    const fact =
+        loveFacts[loveIndex];
+
+
+    loveFront.textContent =
+        fact.front;
+
+
+    loveBack.textContent =
+        fact.back;
+
+
+    loveLabel.textContent =
+        "LOVE FACT #" +
+        String(loveIndex + 1).padStart(2, "0");
+
+
+    loveCounter.textContent =
+        (loveIndex + 1) +
+        " / " +
+        loveFacts.length;
+
+
+    loveCard.classList.remove("flipped");
+
+
+    if (fact.special) {
+
+        loveCard.classList.add("special-card");
+
+        loveFront.innerHTML =
+            '<div class="special-heart">♡</div>' +
+            '<div class="card-text">' +
+            fact.front +
+            '</div>';
+
+        loveBack.innerHTML =
+            '<div class="special-heart">♡</div>' +
+            '<div class="card-text">' +
+            fact.back +
+            '</div>';
+
+    }
+
+    else {
+
+        loveCard.classList.remove("special-card");
+
+        loveFront.textContent =
+            fact.front;
+
+        loveBack.textContent =
+            fact.back;
+
+    }
+
+
+    lovePrev.disabled =
+        loveIndex === 0;
+
+}
+
+
+loveCard.addEventListener(
+    "click",
+    function() {
+
+        loveCard.classList.toggle("flipped");
+
+    }
+);
+
+
+lovePrev.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        if (loveIndex > 0) {
+
+            loveIndex--;
+
+            loadLoveCard();
+
+        }
+
+    }
+);
+
+
+loveNext.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        if (
+            loveIndex <
+            loveFacts.length - 1
+        ) {
+
+            loveIndex++;
+
+            loadLoveCard();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PERSONALITY FACTS
+========================================================= */
+
+const personalityFacts = [
+
+    {
+        front: "I am self aware but...",
+        back: "too lazy to do anything about it"
+    },
+
+    {
+        front: "I get tired easily and...",
+        back: "can sleep all day"
+    },
+
+    {
+        front: "When I'm anxious or worried...",
+        back: "I have trouble sleeping"
+    },
+
+    {
+        front: "Something I'm often like...",
+        back: "forgetful and I lose concentration easily"
+    },
+
+    {
+        front: "I'm good at...",
+        back: "art"
+    },
+
+    {
+        front: "I'm bad at...",
+        back: "singing"
+    },
+
+    {
+        front: "I prefer...",
+        back: "comfortable clothes over pretty clothes"
+    },
+
+    {
+        front: "Something I don't like...",
+        back: "exercise"
+    },
+
+    {
+        front: "I need someone around me to...",
+        back: "help me stay motivated"
+    },
+
+    {
+        front: "I love...",
+        back: "spending time with my loved ones"
+    },
+
+    {
+        front: "I care about...",
+        back: "other's happiness over my own"
+    },
+
+    {
+        front: "Something I sometimes think...",
+        back: "I'm not good enough to be your girlfriend — but I like that I can be immature and childish around you ♡"
+    }
+
+];
+
+
+let personalityIndex = 0;
+
+
+const personalityCard =
+    document.getElementById("personalityCard");
+
+const personalityFront =
+    document.getElementById("personalityFront");
+
+const personalityBack =
+    document.getElementById("personalityBack");
+
+const personalityLabel =
+    document.getElementById("personalityLabel");
+
+const personalityCounter =
+    document.getElementById("personalityCounter");
+
+const personalityPrev =
+    document.getElementById("personalityPrev");
+
+const personalityNext =
+    document.getElementById("personalityNext");
+
+
+function loadPersonalityCard() {
+
+    const fact =
+        personalityFacts[personalityIndex];
+
+
+    personalityFront.textContent =
+        fact.front;
+
+
+    personalityBack.textContent =
+        fact.back;
+
+
+    personalityLabel.textContent =
+        "PERSONALITY FACT #" +
+        String(personalityIndex + 1).padStart(2, "0");
+
+
+    personalityCounter.textContent =
+        (personalityIndex + 1) +
+        " / " +
+        personalityFacts.length;
+
+
+    personalityCard.classList.remove("flipped");
+
+
+    personalityPrev.disabled =
+        personalityIndex === 0;
+
+}
+
+
+personalityCard.addEventListener(
+    "click",
+    function() {
+
+        personalityCard.classList.toggle("flipped");
+
+    }
+);
+
+
+personalityPrev.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        if (personalityIndex > 0) {
+
+            personalityIndex--;
+
+            loadPersonalityCard();
+
+        }
+
+    }
+);
+
+
+personalityNext.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        if (
+            personalityIndex <
+            personalityFacts.length - 1
+        ) {
+
+            personalityIndex++;
+
+            loadPersonalityCard();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   QUIZ
+========================================================= */
+
+const quizQuestions = [
+
+    {
+        question:
+            "What is my favorite food?",
+
+        answer:
+            "Udon"
+    },
+
+    {
+        question:
+            "What animals are my favorite?",
+
+        answer:
+            "Lobsters"
+    },
+
+    {
+        question:
+            "What is my love language?",
+
+        answer:
+            "Quality time"
+    },
+
+    {
+        question:
+            "What do I like to hug when we sleep?",
+
+        answer:
+            "Your tummy"
+    },
+
+    {
+        question:
+            "What do I prefer wearing?",
+
+        answer:
+            "Comfortable clothes"
+    },
+
+    {
+        question:
+            "Which two sports do I like?",
+
+        answer:
+            "Basketball and badminton"
+    },
+
+    {
+        question:
+            "What am I better at?",
+
+        answer:
+            "Art"
+    },
+
+    {
+        question:
+            "What do I sometimes worry about as your girlfriend?",
+
+        answer:
+            "That I am not good enough"
+    },
+
+    {
+        question:
+            "What is my dog's name?",
+
+        answer:
+            "Lucky"
+    },
+
+    {
+        question:
+            "What is my dream car?",
+
+        answer:
+            "Rolls Royce"
+    },
+
+    {
+        question:
+            "What was my favorite subject in high school?",
+
+        answer:
+            "Biology"
+    },
+
+    {
+        question:
+            "What is my least favorite color?",
+
+        answer:
+            "Purple"
+    }
+
+];
+
+
+let quizIndex = 0;
+
 
 const quizCard =
-    document.getElementById(
-        "quizCard"
-    );
+    document.getElementById("quizCard");
+
+const quizQuestion =
+    document.getElementById("quizQuestion");
+
+const quizAnswer =
+    document.getElementById("quizAnswer");
+
+const quizLabel =
+    document.getElementById("quizLabel");
+
+const quizCounter =
+    document.getElementById("quizCounter");
+
+const quizPrev =
+    document.getElementById("quizPrev");
+
+const quizNext =
+    document.getElementById("quizNext");
+
+const quizWrapper =
+    document.getElementById("quizWrapper");
 
 const quizFinal =
-    document.getElementById(
-        "quizFinal"
-    );
-
-const finalTitle =
-    document.getElementById(
-        "finalTitle"
-    );
-
-const finalMessage =
-    document.getElementById(
-        "finalMessage"
-    );
+    document.getElementById("quizFinal");
 
 const restartButton =
-    document.getElementById(
-        "restartButton"
-    );
+    document.getElementById("restartButton");
 
 
-/* ==================================================
-   LOAD QUESTION
-================================================== */
+function loadQuizQuestion() {
 
-function loadQuestion() {
-
-    const question =
-        questions[currentQuestion];
-
-
-    quizProgress.textContent =
-        "question " +
-        (currentQuestion + 1) +
-        " of " +
-        questions.length;
-
-
-    quizCounter.textContent =
-        (currentQuestion + 1) +
-        " / " +
-        questions.length;
+    const item =
+        quizQuestions[quizIndex];
 
 
     quizQuestion.textContent =
-        question.question;
+        item.question;
 
 
-    quizOptions.innerHTML =
-        "";
+    quizAnswer.textContent =
+        item.answer;
 
 
-    quizResult.textContent =
-        "";
+    quizLabel.textContent =
+        "QUESTION #" +
+        String(quizIndex + 1).padStart(2, "0");
 
 
-    /* Previous arrow */
+    quizCounter.textContent =
+        (quizIndex + 1) +
+        " / " +
+        quizQuestions.length;
 
-    previousButton.disabled =
-        currentQuestion === 0;
+
+    quizCard.classList.remove("flipped");
 
 
-    /* Last question */
+    quizPrev.disabled =
+        quizIndex === 0;
+
 
     if (
-        currentQuestion ===
-        questions.length - 1
+        quizIndex ===
+        quizQuestions.length - 1
     ) {
 
-        nextButton.textContent =
+        quizNext.textContent =
             "✓";
 
     }
 
     else {
 
-        nextButton.textContent =
+        quizNext.textContent =
             "→";
 
     }
 
-
-    /* Create answers */
-
-    question.options.forEach(
-        function(option, index) {
-
-            const button =
-                document.createElement(
-                    "button"
-                );
-
-
-            button.className =
-                "quiz-option";
-
-
-            button.type =
-                "button";
-
-
-            button.textContent =
-                option;
-
-
-            button.addEventListener(
-                "click",
-                function() {
-
-                    chooseAnswer(
-                        index,
-                        button
-                    );
-
-                }
-            );
-
-
-            quizOptions.appendChild(
-                button
-            );
-
-        }
-    );
-
-
-    /* Restore previous answer */
-
-    if (
-        answeredQuestions[
-            currentQuestion
-        ] !== undefined
-    ) {
-
-        showPreviousAnswer();
-
-    }
-
 }
 
 
-/* ==================================================
-   CHOOSE ANSWER
-================================================== */
-
-function chooseAnswer(
-    selected,
-    clickedButton
-) {
-
-    /*
-       Prevent changing an answer
-       after it has been selected.
-    */
-
-    if (
-        answeredQuestions[
-            currentQuestion
-        ] !== undefined
-    ) {
-
-        return;
-
-    }
-
-
-    const question =
-        questions[currentQuestion];
-
-
-    const buttons =
-        quizOptions.querySelectorAll(
-            ".quiz-option"
-        );
-
-
-    answeredQuestions[
-        currentQuestion
-    ] = selected;
-
-
-    buttons.forEach(
-        function(button) {
-
-            button.disabled =
-                true;
-
-        }
-    );
-
-
-    if (
-        selected ===
-        question.answer
-    ) {
-
-        score++;
-
-
-        clickedButton.style.background =
-            "#f0e7d0";
-
-
-        quizResult.textContent =
-            "correct ♡ you actually pay attention.";
-
-    }
-
-    else {
-
-        clickedButton.style.background =
-            "#eee8d7";
-
-
-        quizResult.textContent =
-            "wrong 😭 but I'll forgive you.";
-
-    }
-
-}
-
-
-/* ==================================================
-   SHOW PREVIOUS ANSWER
-================================================== */
-
-function showPreviousAnswer() {
-
-    const selected =
-        answeredQuestions[
-            currentQuestion
-        ];
-
-
-    const question =
-        questions[currentQuestion];
-
-
-    const buttons =
-        quizOptions.querySelectorAll(
-            ".quiz-option"
-        );
-
-
-    buttons.forEach(
-        function(button) {
-
-            button.disabled =
-                true;
-
-        }
-    );
-
-
-    if (
-        selected ===
-        question.answer
-    ) {
-
-        buttons[selected].style.background =
-            "#f0e7d0";
-
-
-        quizResult.textContent =
-            "correct ♡ you actually pay attention.";
-
-    }
-
-    else {
-
-        buttons[selected].style.background =
-            "#eee8d7";
-
-
-        buttons[
-            question.answer
-        ].style.background =
-            "#f0e7d0";
-
-
-        quizResult.textContent =
-            "you chose " +
-            question.options[selected] +
-            ". The answer was " +
-            question.options[
-                question.answer
-            ] +
-            ".";
-
-    }
-
-}
-
-
-/* ==================================================
-   NEXT ARROW
-================================================== */
-
-nextButton.addEventListener(
+quizCard.addEventListener(
     "click",
     function() {
 
-        /*
-           Must answer before moving on.
-        */
+        quizCard.classList.toggle("flipped");
 
-        if (
-            answeredQuestions[
-                currentQuestion
-            ] === undefined
-        ) {
+    }
+);
 
-            quizResult.textContent =
-                "choose an answer first ♡";
 
-            return;
+quizPrev.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
+        if (quizIndex > 0) {
+
+            quizIndex--;
+
+            loadQuizQuestion();
 
         }
 
+    }
+);
+
+
+quizNext.addEventListener(
+    "click",
+    function(event) {
+
+        event.stopPropagation();
+
 
         if (
-            currentQuestion <
-            questions.length - 1
+            quizIndex <
+            quizQuestions.length - 1
         ) {
 
-            currentQuestion++;
+            quizIndex++;
 
-            loadQuestion();
+            loadQuizQuestion();
 
         }
 
         else {
 
-            showFinal();
+            quizWrapper.style.display =
+                "none";
+
+            quizFinal.style.display =
+                "block";
 
         }
 
@@ -2340,122 +2114,114 @@ nextButton.addEventListener(
 );
 
 
-/* ==================================================
-   PREVIOUS ARROW
-================================================== */
-
-previousButton.addEventListener(
-    "click",
-    function() {
-
-        if (
-            currentQuestion > 0
-        ) {
-
-            currentQuestion--;
-
-            loadQuestion();
-
-        }
-
-    }
-);
-
-
-/* ==================================================
-   FINAL RESULT
-================================================== */
-
-function showFinal() {
-
-    quizCard.style.display =
-        "none";
-
-
-    quizFinal.style.display =
-        "block";
-
-
-    finalTitle.textContent =
-        score +
-        " / " +
-        questions.length;
-
-
-    if (score <= 3) {
-
-        finalMessage.textContent =
-            "wow... do you even know me? 😭 ♡";
-
-    }
-
-    else if (score <= 6) {
-
-        finalMessage.textContent =
-            "okay, you know me a little ♡";
-
-    }
-
-    else if (score <= 9) {
-
-        finalMessage.textContent =
-            "okayyy, you actually pay attention.";
-
-    }
-
-    else if (score <= 11) {
-
-        finalMessage.textContent =
-            "so close... you almost know everything about me ♡";
-
-    }
-
-    else {
-
-        finalMessage.textContent =
-            "STOP. you know me too well 😭♡";
-
-    }
-
-}
-
-
-/* ==================================================
-   RESTART
-================================================== */
+/* =========================================================
+   RESTART QUIZ
+========================================================= */
 
 restartButton.addEventListener(
     "click",
     function() {
 
-        currentQuestion = 0;
-
-        score = 0;
-
-        answeredQuestions = [];
+        quizIndex = 0;
 
 
         quizFinal.style.display =
             "none";
 
 
-        quizCard.style.display =
+        quizWrapper.style.display =
             "block";
 
 
-        loadQuestion();
+        loadQuizQuestion();
 
     }
 );
 
 
-/* ==================================================
-   START
-================================================== */
+/* =========================================================
+   KEYBOARD CONTROLS
+========================================================= */
 
-loadQuestion();
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        /*
+           Don't use keyboard navigation
+           while typing somewhere.
+        */
+
+        if (
+            event.target.tagName ===
+            "INPUT" ||
+            event.target.tagName ===
+            "TEXTAREA"
+        ) {
+
+            return;
+
+        }
+
+
+        /*
+           Quiz controls when quiz card
+           is being used.
+        */
+
+        if (
+            document.activeElement ===
+            quizCard
+        ) {
+
+            if (event.key === "ArrowLeft") {
+
+                if (quizIndex > 0) {
+
+                    quizIndex--;
+
+                    loadQuizQuestion();
+
+                }
+
+            }
+
+
+            if (event.key === "ArrowRight") {
+
+                if (
+                    quizIndex <
+                    quizQuestions.length - 1
+                ) {
+
+                    quizIndex++;
+
+                    loadQuizQuestion();
+
+                }
+
+            }
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START EVERYTHING
+========================================================= */
+
+loadCommonCard();
+
+loadLoveCard();
+
+loadPersonalityCard();
+
+loadQuizQuestion();
 
 </script>
+
 
 </body>
 </html>
