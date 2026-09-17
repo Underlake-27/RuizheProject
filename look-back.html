@@ -7,509 +7,551 @@
 <title>Look Back ♡</title>
 
 <style>
-    * {
-        box-sizing: border-box;
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #FFFCF0;
+    color: #2B2607;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* =========================
+   MENU
+========================= */
+
+.menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: none;
+    border: none;
+    font-size: 27px;
+    color: #2B2607;
+    cursor: pointer;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    width: 270px;
+    height: 100%;
+    background: #FFFCF0;
+    border-right: 1px solid #2B2607;
+    padding: 80px 30px 30px;
+    z-index: 999;
+    transition: left 0.35s ease;
+    overflow-y: auto;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu a {
+    display: block;
+    color: #2B2607;
+    text-decoration: none;
+    margin-bottom: 18px;
+    font-size: 17px;
+}
+
+.side-menu a:hover {
+    text-decoration: underline;
+}
+
+.menu-heading {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    opacity: 0.6;
+    letter-spacing: 1px;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    max-width: 1000px;
+    margin: auto;
+    padding: 90px 25px 80px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+header h1 {
+    font-size: 48px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: 18px;
+    font-style: italic;
+    opacity: 0.75;
+}
+
+.section-title {
+    text-align: center;
+    margin: 70px 0 35px;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.section-title p {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* =========================
+   DATE CARDS
+========================= */
+
+.date-card {
+    border: 1px solid #2B2607;
+    margin-bottom: 28px;
+    background: rgba(255,255,255,0.25);
+}
+
+.date-header {
+    padding: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.date-header:hover {
+    background: rgba(43,38,7,0.035);
+}
+
+.date-number {
+    font-size: 14px;
+    opacity: 0.55;
+    margin-bottom: 5px;
+}
+
+.date-title {
+    font-size: 24px;
+    margin: 0;
+    font-weight: normal;
+}
+
+.date-small {
+    margin-top: 7px;
+    font-size: 14px;
+    opacity: 0.65;
+}
+
+.arrow {
+    font-size: 22px;
+    transition: transform 0.3s ease;
+}
+
+.date-card.open .arrow {
+    transform: rotate(90deg);
+}
+
+.date-content {
+    display: none;
+    padding: 0 24px 30px;
+    border-top: 1px solid rgba(43,38,7,0.25);
+}
+
+.date-card.open .date-content {
+    display: block;
+    animation: appear 0.35s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
     }
 
-    body {
-        margin: 0;
-        background: #FFFCF0;
-        color: #2B2607;
-        font-family: Georgia, "Times New Roman", serif;
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.memory-text {
+    line-height: 1.8;
+    margin: 25px 0;
+}
+
+/* =========================
+   PHOTOS
+========================= */
+
+.photo-label {
+    margin-top: 30px;
+    margin-bottom: 12px;
+    font-size: 17px;
+}
+
+.photo-row {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0 25px;
+    flex-wrap: wrap;
+}
+
+.photo-placeholder {
+    width: calc(33.333% - 10px);
+    height: 190px;
+    border: 1px dashed #2B2607;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    background: rgba(255,255,255,0.3);
+}
+
+.photo-placeholder:hover {
+    transform: rotate(-1deg) scale(1.02);
+}
+
+.photo-placeholder span {
+    opacity: 0.55;
+    font-style: italic;
+}
+
+.real-photo {
+    width: calc(33.333% - 10px);
+    height: 190px;
+    object-fit: cover;
+    border: 1px solid #2B2607;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.real-photo:hover {
+    transform: rotate(-1deg) scale(1.02);
+}
+
+/* =========================
+   INTERACTIONS
+========================= */
+
+.interaction-box {
+    border-top: 1px solid rgba(43,38,7,0.2);
+    margin-top: 25px;
+    padding-top: 25px;
+}
+
+.interaction-title {
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+/* =========================
+   INSTAGRAM HEART
+========================= */
+
+.like-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.heart-button {
+    border: none;
+    background: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: 32px;
+    color: #2B2607;
+    cursor: pointer;
+    line-height: 1;
+    transition: transform 0.15s ease;
+}
+
+.heart-button:hover {
+    transform: scale(1.12);
+}
+
+.heart-button.liked {
+    transform: scale(1.2);
+}
+
+.heart-count {
+    font-size: 17px;
+}
+
+/* floating hearts */
+
+.heart-pop {
+    position: fixed;
+    pointer-events: none;
+    font-size: 23px;
+    animation: heartFloat 0.9s ease forwards;
+    z-index: 2000;
+}
+
+@keyframes heartFloat {
+
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
     }
 
-    /* =========================
-       HAMBURGER MENU
-    ========================= */
-
-    .menu-button {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1000;
-        background: none;
-        border: none;
-        font-size: 27px;
-        color: #2B2607;
-        cursor: pointer;
+    100% {
+        opacity: 0;
+        transform: translateY(-65px) scale(1.4);
     }
+}
 
-    .side-menu {
-        position: fixed;
-        top: 0;
-        left: -290px;
-        width: 270px;
-        height: 100%;
-        background: #FFFCF0;
-        border-right: 1px solid #2B2607;
-        padding: 80px 30px 30px;
-        z-index: 999;
-        transition: left 0.35s ease;
-        overflow-y: auto;
-    }
+/* =========================
+   STAR RATING
+========================= */
 
-    .side-menu.open {
-        left: 0;
-    }
+.stars {
+    display: flex;
+    gap: 3px;
+}
 
-    .side-menu a {
-        display: block;
-        color: #2B2607;
-        text-decoration: none;
-        margin-bottom: 18px;
-        font-size: 17px;
-    }
+.star {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 30px;
+    color: #2B2607;
+    opacity: 0.3;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
 
-    .side-menu a:hover {
-        text-decoration: underline;
-    }
+.star:hover {
+    transform: scale(1.15);
+}
 
-    .menu-heading {
-        margin-top: 30px;
-        margin-bottom: 15px;
-        font-size: 14px;
-        opacity: 0.6;
-        letter-spacing: 1px;
-    }
+.star.active {
+    opacity: 1;
+}
 
-    /* =========================
-       MAIN PAGE
-    ========================= */
+.rating-text {
+    font-size: 14px;
+    margin-top: 6px;
+    opacity: 0.65;
+    font-style: italic;
+}
 
-    .page {
-        max-width: 1000px;
-        margin: auto;
-        padding: 90px 25px 80px;
-    }
+/* =========================
+   COMMENTS
+========================= */
 
-    header {
-        text-align: center;
-        margin-bottom: 65px;
-    }
+.comment-box {
+    width: 100%;
+    min-height: 110px;
+    resize: vertical;
+    border: 1px solid #2B2607;
+    background: transparent;
+    padding: 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    color: #2B2607;
+    margin-top: 10px;
+}
+
+.comment-box:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #2B2607;
+}
+
+.save-comment {
+    margin-top: 10px;
+    background: none;
+    border: 1px solid #2B2607;
+    padding: 9px 15px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.save-comment:hover {
+    background: rgba(43,38,7,0.05);
+}
+
+.saved-comment {
+    margin-top: 15px;
+    padding: 15px;
+    border-left: 2px solid #2B2607;
+    font-style: italic;
+    line-height: 1.6;
+    display: none;
+}
+
+/* =========================
+   SPECIAL MOMENTS
+========================= */
+
+.scrapbook {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.moment {
+    border: 1px solid #2B2607;
+    padding: 13px;
+    background: rgba(255,255,255,0.35);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.moment:nth-child(2) {
+    transform: rotate(1deg);
+}
+
+.moment:nth-child(3) {
+    transform: rotate(-1deg);
+}
+
+.moment:nth-child(4) {
+    transform: rotate(1.5deg);
+}
+
+.moment:hover {
+    transform: rotate(0deg) translateY(-4px);
+}
+
+.moment-photo {
+    height: 210px;
+    border: 1px dashed #2B2607;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 13px;
+    padding: 15px;
+}
+
+.moment-photo span {
+    opacity: 0.5;
+    font-style: italic;
+}
+
+.moment h3 {
+    font-size: 19px;
+    font-weight: normal;
+    margin: 8px 0;
+}
+
+.moment p {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.75;
+}
+
+/* MORE COMING */
+
+.more-coming {
+    text-align: center;
+    margin: 55px 0 20px;
+    font-style: italic;
+    opacity: 0.6;
+    font-size: 17px;
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(43,38,7,0.88);
+    z-index: 3000;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.lightbox.open {
+    display: flex;
+}
+
+.lightbox-content {
+    background: #FFFCF0;
+    max-width: 800px;
+    max-height: 90vh;
+    padding: 20px;
+    text-align: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.lightbox-text {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #FFFCF0;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
 
     header h1 {
-        font-size: 48px;
-        font-weight: normal;
-        margin-bottom: 12px;
+        font-size: 38px;
     }
 
-    header p {
-        font-size: 18px;
-        font-style: italic;
-        opacity: 0.75;
+    .page {
+        padding: 80px 17px 60px;
     }
 
-    .section-title {
-        text-align: center;
-        margin: 70px 0 35px;
+    .photo-placeholder,
+    .real-photo {
+        width: 100%;
     }
 
-    .section-title h2 {
-        font-size: 32px;
-        font-weight: normal;
-        margin-bottom: 8px;
-    }
-
-    .section-title p {
-        font-style: italic;
-        opacity: 0.7;
-    }
-
-    /* =========================
-       DATE CARDS
-    ========================= */
-
-    .date-card {
-        border: 1px solid #2B2607;
-        margin-bottom: 28px;
-        background: rgba(255,255,255,0.25);
+    .scrapbook {
+        grid-template-columns: 1fr;
     }
 
     .date-header {
-        padding: 24px;
-        cursor: pointer;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 20px;
-    }
-
-    .date-header:hover {
-        background: rgba(43,38,7,0.035);
-    }
-
-    .date-number {
-        font-size: 14px;
-        opacity: 0.55;
-        margin-bottom: 5px;
-    }
-
-    .date-title {
-        font-size: 24px;
-        margin: 0;
-        font-weight: normal;
-    }
-
-    .date-small {
-        margin-top: 7px;
-        font-size: 14px;
-        opacity: 0.65;
-    }
-
-    .arrow {
-        font-size: 22px;
-        transition: transform 0.3s ease;
-    }
-
-    .date-card.open .arrow {
-        transform: rotate(90deg);
+        padding: 20px;
     }
 
     .date-content {
-        display: none;
-        padding: 0 24px 30px;
-        border-top: 1px solid rgba(43,38,7,0.25);
+        padding: 0 20px 25px;
     }
-
-    .date-card.open .date-content {
-        display: block;
-        animation: appear 0.35s ease;
-    }
-
-    @keyframes appear {
-        from {
-            opacity: 0;
-            transform: translateY(-5px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .memory-text {
-        line-height: 1.8;
-        margin: 25px 0;
-    }
-
-    /* =========================
-       PHOTOS
-    ========================= */
-
-    .photo-row {
-        display: flex;
-        gap: 15px;
-        margin: 25px 0;
-        flex-wrap: wrap;
-    }
-
-    .photo-placeholder {
-        width: calc(33.333% - 10px);
-        min-height: 190px;
-        border: 1px dashed #2B2607;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 20px;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-        background: rgba(255,255,255,0.3);
-    }
-
-    .photo-placeholder:hover {
-        transform: rotate(-1deg) scale(1.02);
-    }
-
-    .photo-placeholder span {
-        opacity: 0.55;
-        font-style: italic;
-    }
-
-    .real-photo {
-        width: calc(33.333% - 10px);
-        height: 190px;
-        object-fit: cover;
-        border: 1px solid #2B2607;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-    }
-
-    .real-photo:hover {
-        transform: rotate(-1deg) scale(1.02);
-    }
-
-    /* =========================
-       INTERACTIONS
-    ========================= */
-
-    .interaction-box {
-        border-top: 1px solid rgba(43,38,7,0.2);
-        margin-top: 25px;
-        padding-top: 25px;
-    }
-
-    .interaction-title {
-        font-size: 18px;
-        margin-bottom: 12px;
-    }
-
-    /* HEART */
-
-    .heart-button {
-        background: none;
-        border: 1px solid #2B2607;
-        padding: 10px 17px;
-        font-family: inherit;
-        font-size: 16px;
-        cursor: pointer;
-        transition: transform 0.15s ease, background 0.2s ease;
-    }
-
-    .heart-button:hover {
-        background: rgba(43,38,7,0.05);
-    }
-
-    .heart-button.clicked {
-        transform: scale(1.08);
-    }
-
-    .heart-count {
-        margin-left: 10px;
-        font-size: 17px;
-    }
-
-    .heart-pop {
-        position: fixed;
-        pointer-events: none;
-        font-size: 22px;
-        animation: heartFloat 0.9s ease forwards;
-        z-index: 2000;
-    }
-
-    @keyframes heartFloat {
-        0% {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-        100% {
-            opacity: 0;
-            transform: translateY(-65px) scale(1.4);
-        }
-    }
-
-    /* STARS */
-
-    .stars {
-        display: flex;
-        gap: 4px;
-        margin-top: 8px;
-    }
-
-    .star {
-        background: none;
-        border: none;
-        padding: 0;
-        font-size: 29px;
-        color: #2B2607;
-        opacity: 0.35;
-        cursor: pointer;
-        transition: transform 0.15s ease, opacity 0.15s ease;
-    }
-
-    .star:hover {
-        transform: scale(1.15);
-        opacity: 0.7;
-    }
-
-    .star.active {
-        opacity: 1;
-    }
-
-    .rating-text {
-        font-size: 14px;
-        margin-top: 6px;
-        opacity: 0.65;
-        font-style: italic;
-    }
-
-    /* COMMENTS */
-
-    .comment-box {
-        width: 100%;
-        min-height: 110px;
-        resize: vertical;
-        border: 1px solid #2B2607;
-        background: transparent;
-        padding: 12px;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 15px;
-        color: #2B2607;
-        margin-top: 10px;
-    }
-
-    .save-comment {
-        margin-top: 10px;
-        background: none;
-        border: 1px solid #2B2607;
-        padding: 9px 15px;
-        font-family: inherit;
-        cursor: pointer;
-    }
-
-    .saved-comment {
-        margin-top: 15px;
-        padding: 15px;
-        border-left: 2px solid #2B2607;
-        font-style: italic;
-        line-height: 1.6;
-        display: none;
-    }
-
-    /* =========================
-       SPECIAL MOMENTS
-    ========================= */
-
-    .scrapbook {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-
-    .moment {
-        border: 1px solid #2B2607;
-        padding: 13px;
-        background: rgba(255,255,255,0.35);
-        cursor: pointer;
-        transition: transform 0.2s ease;
-    }
-
-    .moment:nth-child(2) {
-        transform: rotate(1deg);
-    }
-
-    .moment:nth-child(3) {
-        transform: rotate(-1deg);
-    }
-
-    .moment:nth-child(4) {
-        transform: rotate(1.5deg);
-    }
-
-    .moment:hover {
-        transform: rotate(0deg) translateY(-4px);
-    }
-
-    .moment-photo {
-        height: 210px;
-        border: 1px dashed #2B2607;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        margin-bottom: 13px;
-        padding: 15px;
-    }
-
-    .moment-photo span {
-        opacity: 0.5;
-        font-style: italic;
-    }
-
-    .moment h3 {
-        font-size: 19px;
-        font-weight: normal;
-        margin: 8px 0;
-    }
-
-    .moment p {
-        font-size: 14px;
-        line-height: 1.5;
-        opacity: 0.75;
-    }
-
-    /* =========================
-       LIGHTBOX
-    ========================= */
-
-    .lightbox {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(43,38,7,0.88);
-        z-index: 3000;
-        align-items: center;
-        justify-content: center;
-        padding: 30px;
-    }
-
-    .lightbox.open {
-        display: flex;
-    }
-
-    .lightbox-content {
-        background: #FFFCF0;
-        max-width: 800px;
-        max-height: 90vh;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .lightbox-content img {
-        max-width: 100%;
-        max-height: 70vh;
-        object-fit: contain;
-    }
-
-    .lightbox-text {
-        margin-top: 10px;
-        font-style: italic;
-    }
-
-    .close-lightbox {
-        position: absolute;
-        top: 20px;
-        right: 25px;
-        color: #FFFCF0;
-        background: none;
-        border: none;
-        font-size: 30px;
-        cursor: pointer;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 700px) {
-
-        header h1 {
-            font-size: 38px;
-        }
-
-        .page {
-            padding: 80px 17px 60px;
-        }
-
-        .photo-placeholder,
-        .real-photo {
-            width: 100%;
-        }
-
-        .scrapbook {
-            grid-template-columns: 1fr;
-        }
-
-        .date-header {
-            padding: 20px;
-        }
-
-        .date-content {
-            padding: 0 20px 25px;
-        }
-    }
+}
 </style>
 </head>
+
 
 <body>
 
@@ -522,16 +564,25 @@
 <nav class="side-menu" id="sideMenu">
 
     <a href="index.html">home</a>
+
     <a href="miss-you.html">I miss you</a>
+
     <a href="sad.html">I'm sad</a>
+
     <a href="look-back.html">look back</a>
+
     <a href="story.html">our story</a>
 
-    <div class="menu-heading">more little things</div>
+    <div class="menu-heading">
+        more little things
+    </div>
 
     <a href="gallery.html">gallery</a>
+
     <a href="fun-facts.html">fun facts</a>
+
     <a href="virtual-dates.html">virtual dates</a>
+
     <a href="little-things.html">little things</a>
 
 </nav>
@@ -571,9 +622,11 @@
 </div>
 
 
-<!-- DATE 1 -->
+<!-- =====================================================
+     DATE 01
+===================================================== -->
 
-<div class="date-card">
+<div class="date-card" data-date="date1">
 
     <div class="date-header" onclick="toggleDate(this)">
 
@@ -611,52 +664,47 @@
         </p>
 
 
+        <!-- FOOD PHOTOS -->
+
+        <div class="photo-label">
+            🍜 what we ate
+        </div>
+
         <div class="photo-row">
 
             <!--
-                LATER, YOU CAN REPLACE THESE WITH:
+                TO ADD YOUR FIRST FOOD PHOTO:
 
-                <img class="real-photo"
-                     src="images/date1-1.jpg"
-                     alt="Our first date">
+                Replace this whole div with:
 
+                <img
+                    class="real-photo"
+                    src="images/date1-food1.jpg"
+                    alt="Food from our date"
+                    onclick="openImage(this)"
+                >
             -->
 
             <div class="photo-placeholder"
                  onclick="placeholderClicked(event)">
-                <span>✏️ PHOTO HERE ♡</span>
+                <span>✏️ FOOD PHOTO ♡</span>
             </div>
+
+
+            <!-- FOOD PHOTO 2 -->
 
             <div class="photo-placeholder"
                  onclick="placeholderClicked(event)">
-                <span>✏️ PHOTO HERE ♡</span>
+                <span>✏️ FOOD PHOTO ♡</span>
             </div>
+
+
+            <!-- FOOD PHOTO 3 -->
 
             <div class="photo-placeholder"
                  onclick="placeholderClicked(event)">
-                <span>✏️ PHOTO HERE ♡</span>
+                <span>✏️ FOOD PHOTO ♡</span>
             </div>
-
-        </div>
-
-
-        <!-- HEART -->
-
-        <div class="interaction-box">
-
-            <div class="interaction-title">
-                ♡ how much do you love this memory?
-            </div>
-
-            <button
-                class="heart-button"
-                onclick="addHeart(this)">
-                ♡ I love this
-            </button>
-
-            <span class="heart-count">
-                ♡ <span>0</span>
-            </span>
 
         </div>
 
@@ -669,28 +717,63 @@
                 ⭐ how was the food?
             </div>
 
-            <div class="stars"
-                 data-rating="0">
+            <div class="stars" data-rating="0">
 
                 <button class="star"
-                        onclick="rateFood(this, 1)">☆</button>
+                        onclick="rateFood(this, 1)">
+                    ☆
+                </button>
 
                 <button class="star"
-                        onclick="rateFood(this, 2)">☆</button>
+                        onclick="rateFood(this, 2)">
+                    ☆
+                </button>
 
                 <button class="star"
-                        onclick="rateFood(this, 3)">☆</button>
+                        onclick="rateFood(this, 3)">
+                    ☆
+                </button>
 
                 <button class="star"
-                        onclick="rateFood(this, 4)">☆</button>
+                        onclick="rateFood(this, 4)">
+                    ☆
+                </button>
 
                 <button class="star"
-                        onclick="rateFood(this, 5)">☆</button>
+                        onclick="rateFood(this, 5)">
+                    ☆
+                </button>
 
             </div>
 
             <div class="rating-text">
                 no rating yet ♡
+            </div>
+
+        </div>
+
+
+        <!-- HEART -->
+
+        <div class="interaction-box">
+
+            <div class="interaction-title">
+                ♡ this memory
+            </div>
+
+            <div class="like-area">
+
+                <button
+                    class="heart-button"
+                    onclick="addHeart(this)"
+                    aria-label="Like this memory">
+                    ♡
+                </button>
+
+                <span class="heart-count">
+                    <span>0</span>
+                </span>
+
             </div>
 
         </div>
@@ -706,7 +789,8 @@
 
             <textarea
                 class="comment-box"
-                placeholder="Write your memory here... ♡"></textarea>
+                placeholder="Write something you remember about this date... ♡">
+            </textarea>
 
             <button
                 class="save-comment"
@@ -723,9 +807,11 @@
 </div>
 
 
-<!-- DATE 2 -->
+<!-- =====================================================
+     DATE 02
+===================================================== -->
 
-<div class="date-card">
+<div class="date-card" data-date="date2">
 
     <div class="date-header" onclick="toggleDate(this)">
 
@@ -761,41 +847,26 @@
         </p>
 
 
+        <div class="photo-label">
+            🍜 what we ate
+        </div>
+
         <div class="photo-row">
 
             <div class="photo-placeholder"
                  onclick="placeholderClicked(event)">
-                <span>✏️ PHOTO HERE ♡</span>
+                <span>✏️ FOOD PHOTO ♡</span>
             </div>
 
             <div class="photo-placeholder"
                  onclick="placeholderClicked(event)">
-                <span>✏️ PHOTO HERE ♡</span>
+                <span>✏️ FOOD PHOTO ♡</span>
             </div>
 
             <div class="photo-placeholder"
                  onclick="placeholderClicked(event)">
-                <span>✏️ PHOTO HERE ♡</span>
+                <span>✏️ FOOD PHOTO ♡</span>
             </div>
-
-        </div>
-
-
-        <div class="interaction-box">
-
-            <div class="interaction-title">
-                ♡ how much do you love this memory?
-            </div>
-
-            <button
-                class="heart-button"
-                onclick="addHeart(this)">
-                ♡ I love this
-            </button>
-
-            <span class="heart-count">
-                ♡ <span>0</span>
-            </span>
 
         </div>
 
@@ -806,8 +877,7 @@
                 ⭐ how was the food?
             </div>
 
-            <div class="stars"
-                 data-rating="0">
+            <div class="stars" data-rating="0">
 
                 <button class="star"
                         onclick="rateFood(this, 1)">☆</button>
@@ -836,12 +906,37 @@
         <div class="interaction-box">
 
             <div class="interaction-title">
+                ♡ this memory
+            </div>
+
+            <div class="like-area">
+
+                <button
+                    class="heart-button"
+                    onclick="addHeart(this)"
+                    aria-label="Like this memory">
+                    ♡
+                </button>
+
+                <span class="heart-count">
+                    <span>0</span>
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="interaction-box">
+
+            <div class="interaction-title">
                 💭 what do you remember?
             </div>
 
             <textarea
                 class="comment-box"
-                placeholder="Write your memory here... ♡"></textarea>
+                placeholder="Write something you remember about this date... ♡">
+            </textarea>
 
             <button
                 class="save-comment"
@@ -858,9 +953,11 @@
 </div>
 
 
-<!-- DATE 3 -->
+<!-- =====================================================
+     DATE 03
+===================================================== -->
 
-<div class="date-card">
+<div class="date-card" data-date="date3">
 
     <div class="date-header" onclick="toggleDate(this)">
 
@@ -896,41 +993,26 @@
         </p>
 
 
+        <div class="photo-label">
+            🍜 what we ate
+        </div>
+
         <div class="photo-row">
 
             <div class="photo-placeholder"
                  onclick="placeholderClicked(event)">
-                <span>✏️ PHOTO HERE ♡</span>
+                <span>✏️ FOOD PHOTO ♡</span>
             </div>
 
             <div class="photo-placeholder"
                  onclick="placeholderClicked(event)">
-                <span>✏️ PHOTO HERE ♡</span>
+                <span>✏️ FOOD PHOTO ♡</span>
             </div>
 
             <div class="photo-placeholder"
                  onclick="placeholderClicked(event)">
-                <span>✏️ PHOTO HERE ♡</span>
+                <span>✏️ FOOD PHOTO ♡</span>
             </div>
-
-        </div>
-
-
-        <div class="interaction-box">
-
-            <div class="interaction-title">
-                ♡ how much do you love this memory?
-            </div>
-
-            <button
-                class="heart-button"
-                onclick="addHeart(this)">
-                ♡ I love this
-            </button>
-
-            <span class="heart-count">
-                ♡ <span>0</span>
-            </span>
 
         </div>
 
@@ -941,8 +1023,7 @@
                 ⭐ how was the food?
             </div>
 
-            <div class="stars"
-                 data-rating="0">
+            <div class="stars" data-rating="0">
 
                 <button class="star"
                         onclick="rateFood(this, 1)">☆</button>
@@ -971,12 +1052,37 @@
         <div class="interaction-box">
 
             <div class="interaction-title">
+                ♡ this memory
+            </div>
+
+            <div class="like-area">
+
+                <button
+                    class="heart-button"
+                    onclick="addHeart(this)"
+                    aria-label="Like this memory">
+                    ♡
+                </button>
+
+                <span class="heart-count">
+                    <span>0</span>
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="interaction-box">
+
+            <div class="interaction-title">
                 💭 what do you remember?
             </div>
 
             <textarea
                 class="comment-box"
-                placeholder="Write your memory here... ♡"></textarea>
+                placeholder="Write something you remember about this date... ♡">
+            </textarea>
 
             <button
                 class="save-comment"
@@ -1089,6 +1195,11 @@
 
 </div>
 
+
+<div class="more-coming">
+    more coming... ♡
+</div>
+
 </section>
 
 </main>
@@ -1110,7 +1221,9 @@
 
         <div id="lightboxImage"></div>
 
-        <div class="lightbox-text" id="lightboxText">
+        <div
+            class="lightbox-text"
+            id="lightboxText">
         </div>
 
     </div>
@@ -1120,103 +1233,191 @@
 
 <script>
 
-/* =========================
+/* =====================================================
    MENU
-========================= */
+===================================================== */
 
 function toggleMenu() {
 
-    const menu = document.getElementById("sideMenu");
+    const menu =
+        document.getElementById("sideMenu");
 
     menu.classList.toggle("open");
 
 }
 
 
-/* =========================
+/* =====================================================
    DATE CARDS
-========================= */
+===================================================== */
 
 function toggleDate(header) {
 
-    const card = header.parentElement;
+    const card =
+        header.parentElement;
 
     card.classList.toggle("open");
 
 }
 
 
-/* =========================
+/* =====================================================
    HEART COUNTER
-========================= */
+===================================================== */
 
 function addHeart(button) {
 
-    const counter = button
-        .parentElement
+    const card =
+        button.closest(".date-card");
+
+    const dateID =
+        card.dataset.date;
+
+    const counter =
+        button.parentElement
         .querySelector(".heart-count span");
 
-    let count = parseInt(counter.textContent) || 0;
+    let count =
+        parseInt(
+            localStorage.getItem(
+                "hearts-" + dateID
+            )
+        ) || 0;
 
     count++;
 
+    localStorage.setItem(
+        "hearts-" + dateID,
+        count
+    );
+
     counter.textContent = count;
 
-    button.classList.add("clicked");
+
+    /* little heart animation */
+
+    button.classList.add("liked");
 
     setTimeout(() => {
-        button.classList.remove("clicked");
+
+        button.classList.remove("liked");
+
     }, 150);
 
 
     /* floating heart */
 
-    const heart = document.createElement("div");
+    const heart =
+        document.createElement("div");
 
     heart.className = "heart-pop";
+
     heart.textContent = "♡";
 
-    const rect = button.getBoundingClientRect();
+    const rect =
+        button.getBoundingClientRect();
 
-    heart.style.left = rect.left + rect.width / 2 + "px";
-    heart.style.top = rect.top + "px";
+    heart.style.left =
+        rect.left +
+        rect.width / 2 +
+        "px";
+
+    heart.style.top =
+        rect.top +
+        "px";
 
     document.body.appendChild(heart);
 
+
     setTimeout(() => {
+
         heart.remove();
+
     }, 900);
 
 }
 
 
-/* =========================
+/* =====================================================
+   LOAD HEART COUNTERS
+===================================================== */
+
+function loadHearts() {
+
+    const cards =
+        document.querySelectorAll(".date-card");
+
+    cards.forEach(card => {
+
+        const dateID =
+            card.dataset.date;
+
+        const saved =
+            localStorage.getItem(
+                "hearts-" + dateID
+            );
+
+        if (saved !== null) {
+
+            const counter =
+                card.querySelector(
+                    ".heart-count span"
+                );
+
+            counter.textContent = saved;
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
    STAR RATING
-========================= */
+===================================================== */
 
 function rateFood(star, rating) {
 
-    const starsContainer = star.parentElement;
+    const card =
+        star.closest(".date-card");
 
-    const stars = starsContainer.querySelectorAll(".star");
+    const dateID =
+        card.dataset.date;
 
-    starsContainer.dataset.rating = rating;
+    const starsContainer =
+        star.parentElement;
+
+    const stars =
+        starsContainer.querySelectorAll(".star");
+
+    starsContainer.dataset.rating =
+        rating;
+
 
     stars.forEach((item, index) => {
 
         if (index < rating) {
 
             item.textContent = "★";
+
             item.classList.add("active");
 
         } else {
 
             item.textContent = "☆";
+
             item.classList.remove("active");
 
         }
 
     });
+
+
+    localStorage.setItem(
+        "rating-" + dateID,
+        rating
+    );
 
 
     const ratingText =
@@ -1226,38 +1427,83 @@ function rateFood(star, rating) {
 
     const messages = {
 
-        1: "uh oh... maybe we shouldn't go back 😭",
+        1:
+        "uh oh... maybe we shouldn't go back 😭",
 
-        2: "it was... edible ♡",
+        2:
+        "it was... edible ♡",
 
-        3: "pretty decent!",
+        3:
+        "pretty decent!",
 
-        4: "okay this was GOOD",
+        4:
+        "okay this was GOOD",
 
-        5: "WE NEED TO GO BACK IMMEDIATELY ♡"
+        5:
+        "WE NEED TO GO BACK IMMEDIATELY ♡"
 
     };
 
 
-    ratingText.textContent = messages[rating];
+    ratingText.textContent =
+        messages[rating];
 
 }
 
 
-/* =========================
+/* =====================================================
+   LOAD STAR RATINGS
+===================================================== */
+
+function loadRatings() {
+
+    const cards =
+        document.querySelectorAll(".date-card");
+
+    cards.forEach(card => {
+
+        const dateID =
+            card.dataset.date;
+
+        const saved =
+            localStorage.getItem(
+                "rating-" + dateID
+            );
+
+        if (saved !== null) {
+
+            const rating =
+                parseInt(saved);
+
+            const firstStar =
+                card.querySelector(".star");
+
+            rateFood(firstStar, rating);
+
+        }
+
+    });
+
+}
+
+
+/* =====================================================
    COMMENTS
-========================= */
+===================================================== */
 
 function saveComment(button) {
 
-    const box =
-        button.parentElement;
+    const card =
+        button.closest(".date-card");
+
+    const dateID =
+        card.dataset.date;
 
     const textarea =
-        box.querySelector(".comment-box");
+        card.querySelector(".comment-box");
 
     const saved =
-        box.querySelector(".saved-comment");
+        card.querySelector(".saved-comment");
 
     const text =
         textarea.value.trim();
@@ -1265,7 +1511,8 @@ function saveComment(button) {
 
     if (text === "") {
 
-        saved.style.display = "block";
+        saved.style.display =
+            "block";
 
         saved.textContent =
             "You haven't written anything yet... ♡";
@@ -1275,82 +1522,199 @@ function saveComment(button) {
     }
 
 
-    saved.style.display = "block";
+    /* SAVE IT */
+
+    localStorage.setItem(
+        "comment-" + dateID,
+        text
+    );
+
+
+    displayComment(
+        card,
+        text
+    );
+
+}
+
+
+/* =====================================================
+   DISPLAY SAVED COMMENT
+===================================================== */
+
+function displayComment(card, text) {
+
+    const saved =
+        card.querySelector(".saved-comment");
+
+    const textarea =
+        card.querySelector(".comment-box");
+
+    saved.style.display =
+        "block";
 
     saved.textContent =
         "♡ You remember: " + text;
 
-}
-
-
-/* =========================
-   PHOTO PLACEHOLDER
-========================= */
-
-function placeholderClicked(event) {
-
-    event.stopPropagation();
-
-    alert("Put one of our photos here ♡");
+    textarea.value =
+        text;
 
 }
 
 
-/* =========================
-   SPECIAL MOMENTS
-========================= */
+/* =====================================================
+   LOAD SAVED COMMENTS
+===================================================== */
 
-function openMoment(moment) {
+function loadComments() {
 
-    const title =
-        moment.querySelector("h3").textContent;
+    const cards =
+        document.querySelectorAll(".date-card");
 
-    const text =
-        moment.querySelector("p").textContent;
+    cards.forEach(card => {
 
-    const photo =
-        moment.querySelector(".moment-photo");
+        const dateID =
+            card.dataset.date;
 
+        const saved =
+            localStorage.getItem(
+                "comment-" + dateID
+            );
 
-    document.getElementById("lightboxText").innerHTML =
-        "<strong>" + title + "</strong><br><br>" + text;
+        if (saved !== null) {
 
-
-    document.getElementById("lightboxImage").innerHTML =
-        "<div style='padding:80px 30px; font-style:italic; opacity:0.6;'>photo goes here ♡</div>";
-
-
-    document.getElementById("lightbox")
-        .classList.add("open");
-
-}
-
-
-/* =========================
-   CLOSE LIGHTBOX
-========================= */
-
-function closeLightbox() {
-
-    document.getElementById("lightbox")
-        .classList.remove("open");
-
-}
-
-
-/* close by clicking background */
-
-document.getElementById("lightbox")
-    .addEventListener("click", function(event) {
-
-        if (event.target === this) {
-
-            closeLightbox();
+            displayComment(
+                card,
+                saved
+            );
 
         }
 
     });
 
+}
+
+
+/* =====================================================
+   PHOTO PLACEHOLDER
+===================================================== */
+
+function placeholderClicked(event) {
+
+    event.stopPropagation();
+
+    alert(
+        "Put one of our photos here ♡"
+    );
+
+}
+
+
+/* =====================================================
+   REAL PHOTO LIGHTBOX
+===================================================== */
+
+function openImage(image) {
+
+    document.getElementById(
+        "lightboxImage"
+    ).innerHTML =
+        "<img src='" +
+        image.src +
+        "' alt='Our memory'>";
+
+    document.getElementById(
+        "lightboxText"
+    ).textContent = "";
+
+    document.getElementById(
+        "lightbox"
+    ).classList.add("open");
+
+}
+
+
+/* =====================================================
+   SPECIAL MOMENTS
+===================================================== */
+
+function openMoment(moment) {
+
+    const title =
+        moment.querySelector("h3")
+        .textContent;
+
+    const text =
+        moment.querySelector("p")
+        .textContent;
+
+
+    document.getElementById(
+        "lightboxText"
+    ).innerHTML =
+        "<strong>" +
+        title +
+        "</strong><br><br>" +
+        text;
+
+
+    document.getElementById(
+        "lightboxImage"
+    ).innerHTML =
+        "<div style='padding:80px 30px; font-style:italic; opacity:0.6;'>" +
+        "photo goes here ♡" +
+        "</div>";
+
+
+    document.getElementById(
+        "lightbox"
+    ).classList.add("open");
+
+}
+
+
+/* =====================================================
+   CLOSE LIGHTBOX
+===================================================== */
+
+function closeLightbox() {
+
+    document.getElementById(
+        "lightbox"
+    ).classList.remove("open");
+
+}
+
+
+/* click outside image */
+
+document.getElementById(
+    "lightbox"
+).addEventListener(
+    "click",
+    function(event) {
+
+        if (
+            event.target === this
+        ) {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOAD EVERYTHING
+===================================================== */
+
+loadHearts();
+
+loadRatings();
+
+loadComments();
 
 </script>
 
