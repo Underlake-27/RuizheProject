@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>I miss you ♡</title>
+
+
+    <style>
+
+        /* ==========================================
+           GENERAL
+        ========================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            background: #FFFCF0;
+
+            color: #2B2607;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            min-height: 100vh;
+
+            overflow-x: hidden;
+        }
+
+
+        /* ==========================================
+           PAGE
+        ========================================== */
+
+        .page {
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            padding: 40px;
+        }
+
+
+        /* ==========================================
+           MENU BUTTON
+        ========================================== */
+
+        .menu-button {
+
+            position: fixed;
+
+            top: 30px;
+
+            left: 30px;
+
+            z-index: 50;
+
+            background: none;
+
+            border: none;
+
+            font-family: inherit;
+
+            font-size: 27px;
+
+            cursor: pointer;
+
+            color: #2B2607;
+
+            padding: 5px;
+
+            transition: transform 0.3s ease;
+        }
+
+
+        .menu-button:hover {
+
+            transform: rotate(8deg);
+        }
+
+
+        /* ==========================================
+           SIDE MENU
+        ========================================== */
+
+        .side-menu {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 270px;
+
+            height: 100vh;
+
+            background: #FFFCF0;
+
+            border-right: 1px solid #2B2607;
+
+            padding: 90px 35px 40px;
+
+            z-index: 40;
+
+            transform: translateX(-100%);
+
+            transition: transform 0.45s ease;
+
+            box-shadow:
+                5px 0 20px rgba(43, 38, 7, 0.04);
+        }
+
+
+        .side-menu.open {
+
+            transform: translateX(0);
+        }
+
+
+        .side-menu h2 {
+
+            font-size: 25px;
+
+            font-weight: normal;
+
+            margin-bottom: 35px;
+        }
+
+
+        .side-menu a {
+
+            display: block;
+
+            color: #2B2607;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            margin: 17px 0;
+
+            transition:
+                transform 0.2s ease,
+                opacity 0.2s ease;
+        }
+
+
+        .side-menu a:hover {
+
+            transform: translateX(5px);
+
+            text-decoration: underline;
+        }
+
+
+        .menu-section {
+
+            margin-top: 35px;
+
+            margin-bottom: 10px;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            font-style: italic;
+        }
+
+
+        /* ==========================================
+           HEADER
+        ========================================== */
+
+        header {
+
+            text-align: center;
+
+            padding: 55px 20px 35px;
+
+            border-bottom: 1px solid #2B2607;
+        }
+
+
+        header h1 {
+
+            font-size: 52px;
+
+            font-weight: normal;
+
+            margin: 0;
+        }
+
+
+        header p {
+
+            font-size: 17px;
+
+            font-style: italic;
+
+            margin-top: 12px;
+        }
+
+
+        .heart {
+
+            color: #8B5E3C;
+
+            font-size: 28px;
+        }
+
+
+        /* ==========================================
+           INTRO PARAGRAPH
+        ========================================== */
+
+        .intro-text {
+
+            max-width: 700px;
+
+            margin: 75px auto;
+
+            font-size: 19px;
+
+            line-height: 1.9;
+        }
+
+
+        .intro-text h2 {
+
+            font-size: 31px;
+
+            font-weight: normal;
+
+            margin-bottom: 25px;
+        }
+
+
+        .intro-text p {
+
+            margin-bottom: 25px;
+        }
+
+
+        /* ==========================================
+           DECORATIVE DIVIDER
+        ========================================== */
+
+        .divider {
+
+            text-align: center;
+
+            margin: 60px 0;
+
+            font-size: 23px;
+
+            opacity: 0.7;
+        }
+
+
+        /* ==========================================
+           PHOTO SECTION
+        ========================================== */
+
+        .photos {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 25px;
+
+            margin: 70px auto;
+
+            max-width: 850px;
+        }
+
+
+        .photo {
+
+            width: 210px;
+
+            background: #fffdf7;
+
+            padding: 10px 10px 18px;
+
+            border: 1px solid #d7d0bd;
+
+            box-shadow:
+                2px 4px 12px rgba(43, 38, 7, 0.08);
+
+            transition:
+                transform 0.4s ease;
+        }
+
+
+        .photo:nth-child(1) {
+
+            transform: rotate(-3deg);
+        }
+
+
+        .photo:nth-child(2) {
+
+            transform: rotate(2deg);
+        }
+
+
+        .photo:nth-child(3) {
+
+            transform: rotate(-2deg);
+        }
+
+
+        .photo:hover {
+
+            transform:
+                translateY(-8px)
+                rotate(0deg);
+        }
+
+
+        .photo-placeholder {
+
+            width: 100%;
+
+            height: 190px;
+
+            background: #eee9da;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            font-size: 14px;
+
+            font-style: italic;
+
+            color: #77705d;
+        }
+
+
+        .caption {
+
+            text-align: center;
+
+            margin-top: 12px;
+
+            font-size: 14px;
+
+            font-style: italic;
+        }
+
+
+        /* ==========================================
+           CARE PARAGRAPH
+        ========================================== */
+
+        .care {
+
+            max-width: 680px;
+
+            margin: 100px auto 70px;
+
+            text-align: center;
+        }
+
+
+        .care h2 {
+
+            font-size: 31px;
+
+            font-weight: normal;
+
+            margin-bottom: 25px;
+        }
+
+
+        .care p {
+
+            font-size: 18px;
+
+            line-height: 1.9;
+        }
+
+
+        /* ==========================================
+           INTERACTIVE SECTION
+        ========================================== */
+
+        .interactive {
+
+            text-align: center;
+
+            margin: 100px auto;
+
+        }
+
+
+        .interactive h2 {
+
+            font-size: 30px;
+
+            font-weight: normal;
+
+            margin-bottom: 10px;
+        }
+
+
+        .interactive p {
+
+            font-size: 15px;
+
+            font-style: italic;
+
+            margin-bottom: 40px;
+
+            opacity: 0.8;
+        }
+
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 30px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .love-button {
+
+            width: 230px;
+
+            min-height: 90px;
+
+            padding: 20px;
+
+            background: #f5ead9;
+
+            border: 1px solid #2B2607;
+
+            color: #2B2607;
+
+            font-family: inherit;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease;
+        }
+
+
+        .love-button:hover {
+
+            transform:
+                translateY(-5px)
+                rotate(-1deg);
+
+            background: #f9dfd8;
+        }
+
+
+        .love-button:active {
+
+            transform: scale(0.95);
+        }
+
+
+        .button-small {
+
+            display: block;
+
+            font-size: 12px;
+
+            font-style: italic;
+
+            margin-top: 8px;
+        }
+
+
+        /* ==========================================
+           FLYING LOVE IMAGES
+        ========================================== */
+
+        .flying-love {
+
+            position: fixed;
+
+            z-index: 200;
+
+            pointer-events: none;
+
+            font-size: 80px;
+
+            animation: flyLove 2.2s ease forwards;
+        }
+
+
+        @keyframes flyLove {
+
+            0% {
+
+                opacity: 0;
+
+                transform:
+                    translate(0, 0)
+                    scale(0.3)
+                    rotate(-15deg);
+            }
+
+
+            20% {
+
+                opacity: 1;
+
+                transform:
+                    translate(0, 0)
+                    scale(1.1)
+                    rotate(5deg);
+            }
+
+
+            70% {
+
+                opacity: 1;
+
+                transform:
+                    translate(0, -30px)
+                    scale(1)
+                    rotate(-5deg);
+            }
+
+
+            100% {
+
+                opacity: 0;
+
+                transform:
+                    translate(0, -100px)
+                    scale(0.7)
+                    rotate(15deg);
+            }
+
+        }
+
+
+        /* ==========================================
+           FOOTER
+        ========================================== */
+
+        footer {
+
+            text-align: center;
+
+            margin-top: 120px;
+
+            padding: 30px;
+
+            border-top: 1px solid #2B2607;
+
+            font-size: 14px;
+
+            font-style: italic;
+        }
+
+
+        /* ==========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 600px) {
+
+            .page {
+
+                padding: 20px;
+            }
+
+
+            header h1 {
+
+                font-size: 40px;
+            }
+
+
+            .intro-text {
+
+                font-size: 17px;
+            }
+
+
+            .photo {
+
+                width: 180px;
+            }
+
+
+            .photo-placeholder {
+
+                height: 160px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         MENU BUTTON
+    ========================================== -->
+
+    <button
+        class="menu-button"
+        onclick="toggleMenu()">
+
+        ☰
+
+    </button>
+
+
+
+    <!-- ==========================================
+         SIDE MENU
+    ========================================== -->
+
+    <div id="sideMenu" class="side-menu">
+
+        <h2>
+            hello, you ♡
+        </h2>
+
+
+        <a href="index.html">
+            home
+        </a>
+
+
+        <a href="miss-you.html">
+            I miss you
+        </a>
+
+
+        <a href="sad.html">
+            I'm sad
+        </a>
+
+
+        <a href="look-back.html">
+            look back
+        </a>
+
+
+        <a href="story.html">
+            our story
+        </a>
+
+
+        <div class="menu-section">
+            more little things
+        </div>
+
+
+        <a href="gallery.html">
+            gallery
+        </a>
+
+
+        <a href="fun-facts.html">
+            fun facts
+        </a>
+
+
+        <a href="virtual-dates.html">
+            virtual dates
+        </a>
+
+
+        <a href="little-things.html">
+            little things
+        </a>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         MAIN PAGE
+    ========================================== -->
+
+    <div class="page">
+
+
+        <header>
+
+            <!-- ✏️ CHANGE THIS -->
+
+            <h1>
+                I miss you
+                <span class="heart">♡</span>
+            </h1>
+
+
+            <!-- ✏️ CHANGE THIS -->
+
+            <p>
+                same sky, different places
+            </p>
+
+        </header>
+
+
+
+        <!-- ======================================
+             FIRST PARAGRAPH
+        ====================================== -->
+
+        <section class="intro-text">
+
+            <!-- ✏️ CHANGE THIS HEADING -->
+
+            <h2>
+                Long distance is hard.
+            </h2>
+
+
+            <!-- ✏️✏️✏️ PUT YOUR OWN PARAGRAPH HERE -->
+
+            <p>
+                No matter how many calls we have, how many
+                messages we send, or how many plans we make
+                for the next time we see each other, it still
+                feels different when you're not here.
+            </p>
+
+
+            <!-- ✏️ YOU CAN ADD MORE PARAGRAPHS HERE -->
+
+            <p>
+                I miss you too. I miss the little things,
+                the moments that don't seem important until
+                you're not here to share them with me.
+            </p>
+
+        </section>
+
+
+
+        <div class="divider">
+            ♡　✦　♡
+        </div>
+
+
+
+        <!-- ======================================
+             PHOTOS
+        ====================================== -->
+
+        <section class="photos">
+
+
+            <!-- ✏️ PHOTO 1 -->
+
+            <div class="photo">
+
+                <!--
+                    LATER replace this div with:
+
+                    <img src="images/photo1.jpg">
+
+                -->
+
+                <div class="photo-placeholder">
+
+                    photo 1 goes here ♡
+
+                </div>
+
+
+                <!-- ✏️ CHANGE CAPTION -->
+
+                <div class="caption">
+                    my favourite person
+                </div>
+
+            </div>
+
+
+
+            <!-- ✏️ PHOTO 2 -->
+
+            <div class="photo">
+
+                <div class="photo-placeholder">
+
+                    photo 2 goes here ♡
+
+                </div>
+
+
+                <!-- ✏️ CHANGE CAPTION -->
+
+                <div class="caption">
+                    always you
+                </div>
+
+            </div>
+
+
+
+            <!-- ✏️ PHOTO 3 -->
+
+            <div class="photo">
+
+                <div class="photo-placeholder">
+
+                    photo 3 goes here ♡
+
+                </div>
+
+
+                <!-- ✏️ CHANGE CAPTION -->
+
+                <div class="caption">
+                    one of my favourite days
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <div class="divider">
+            ✦　♡　✦
+        </div>
+
+
+
+        <!-- ======================================
+             SECOND PARAGRAPH
+        ====================================== -->
+
+        <section class="care">
+
+
+            <!-- ✏️ CHANGE THIS -->
+
+            <h2>
+                I care about you.
+            </h2>
+
+
+            <!-- ✏️✏️✏️ PUT YOUR OWN PARAGRAPH HERE -->
+
+            <p>
+                You mean so much to me, and I hope you know
+                how much I care about you. Even when we're
+                far apart, I'm always thinking about you
+                and cheering you on.
+            </p>
+
+
+            <!-- ✏️ ADD MORE HERE IF YOU WANT -->
+
+            <p>
+                I can't wait until distance isn't something
+                we have to think about anymore.
+            </p>
+
+        </section>
+
+
+
+        <!-- ======================================
+             HUGS & KISSES
+        ====================================== -->
+
+        <section class="interactive">
+
+
+            <h2>
+                Here, take what you need ♡
+            </h2>
+
+
+            <p>
+                click the buttons. I mean it.
+            </p>
+
+
+            <div class="buttons">
+
+
+                <!-- HUG BUTTON -->
+
+                <button
+                    class="love-button"
+                    onclick="sendLove('hug')">
+
+                    I want hugs
+
+                    <span class="button-small">
+                        please accept this virtual hug
+                    </span>
+
+                </button>
+
+
+
+                <!-- KISS BUTTON -->
+
+                <button
+                    class="love-button"
+                    onclick="sendLove('kiss')">
+
+                    I want kisses
+
+                    <span class="button-small">
+                        mwah ♡
+                    </span>
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+
+        <footer>
+
+            <!-- ✏️ CHANGE THIS -->
+
+            until then, I'll keep missing you a little more each day.
+            <br><br>
+            ♡
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+
+        /* ==========================================
+           SIDE MENU
+        ========================================== */
+
+        function toggleMenu() {
+
+            const menu =
+                document.getElementById("sideMenu");
+
+            menu.classList.toggle("open");
+
+        }
+
+
+
+        /* ==========================================
+           HUGS + KISSES
+        ========================================== */
+
+        function sendLove(type) {
+
+
+            /*
+                These are currently emoji placeholders.
+
+                Once you give me your hug/kiss pictures,
+                we'll replace these with your actual images.
+            */
+
+
+            const love = document.createElement("div");
+
+            love.className = "flying-love";
+
+
+            if (type === "hug") {
+
+                love.textContent = "🫂";
+
+            }
+
+            else {
+
+                love.textContent = "💋";
+
+            }
+
+
+            /*
+                Random position around the screen
+            */
+
+            const sides = [
+
+                {
+                    left: Math.random() * 25 + "%",
+                    top: Math.random() * 70 + "%"
+                },
+
+                {
+                    left: Math.random() * 70 + "%",
+                    top: Math.random() * 20 + "%"
+                },
+
+                {
+                    left: Math.random() * 80 + "%",
+                    top: Math.random() * 70 + "%"
+                }
+
+            ];
+
+
+            const position =
+                sides[Math.floor(Math.random() * sides.length)];
+
+
+            love.style.left = position.left;
+
+            love.style.top = position.top;
+
+
+            /*
+                Random size
+            */
+
+            love.style.fontSize =
+                (60 + Math.random() * 50) + "px";
+
+
+            document.body.appendChild(love);
+
+
+            /*
+                Sound effect
+            */
+
+            playSound(type);
+
+
+            /*
+                Remove after animation
+            */
+
+            setTimeout(() => {
+
+                love.remove();
+
+            }, 2200);
+
+        }
+
+
+
+        /* ==========================================
+           SIMPLE SOUND EFFECTS
+        ========================================== */
+
+        function playSound(type) {
+
+
+            const AudioContext =
+                window.AudioContext ||
+                window.webkitAudioContext;
+
+
+            if (!AudioContext) return;
+
+
+            const audio =
+                new AudioContext();
+
+
+            const oscillator =
+                audio.createOscillator();
+
+
+            const gain =
+                audio.createGain();
+
+
+            oscillator.connect(gain);
+
+            gain.connect(audio.destination);
+
+
+            if (type === "hug") {
+
+                /*
+                    Soft little "boop"
+                */
+
+                oscillator.frequency.value = 280;
+
+                oscillator.type = "sine";
+
+            }
+
+            else {
+
+                /*
+                    Higher little kiss sound
+                */
+
+                oscillator.frequency.value = 520;
+
+                oscillator.type = "triangle";
+
+            }
+
+
+            gain.gain.setValueAtTime(
+                0.001,
+                audio.currentTime
+            );
+
+
+            gain.gain.exponentialRampToValueAtTime(
+                0.12,
+                audio.currentTime + 0.03
+            );
+
+
+            gain.gain.exponentialRampToValueAtTime(
+                0.001,
+                audio.currentTime + 0.35
+            );
+
+
+            oscillator.start();
+
+            oscillator.stop(
+                audio.currentTime + 0.35
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
