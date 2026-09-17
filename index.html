@@ -856,7 +856,10 @@
 
     <script>
 
-
+ // CHECK IF THE INTRO HAS ALREADY BEEN SEEN
+    if (localStorage.getItem("introSeen") === "true") {
+        // skip the dialogue
+    }
         /* ==========================================
            INTRO TEXT
         ========================================== */
