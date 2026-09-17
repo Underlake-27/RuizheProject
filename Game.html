@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>How Much Do I Love You?</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #FFFCF0;
+    color: #2B2607;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+/* =========================
+   HAMBURGER
+========================= */
+
+.menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #2B2607;
+    background: #FFFCF0;
+
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* =========================
+   SIDE MENU
+========================= */
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+
+    width: 280px;
+    height: 100vh;
+
+    background: #FFFCF0;
+    border-right: 1px solid #2B2607;
+
+    padding: 80px 30px 30px;
+
+    z-index: 900;
+
+    transition: left 0.4s ease;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.side-menu a {
+    display: block;
+
+    color: #2B2607;
+    text-decoration: none;
+
+    font-size: 18px;
+
+    margin: 18px 0;
+}
+
+.side-menu a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    padding: 90px 25px 60px;
+}
+
+.title {
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 38px;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.title p {
+    font-size: 15px;
+    font-style: italic;
+}
+
+/* =========================
+   GAME
+========================= */
+
+.game-container {
+    margin-top: 40px;
+
+    border: 1px solid #2B2607;
+
+    display: grid;
+    grid-template-columns: 1fr 230px;
+
+    min-height: 560px;
+
+    background: #fffdf5;
+}
+
+/* =========================
+   HEART FIELD
+========================= */
+
+.heart-field {
+    position: relative;
+
+    min-height: 560px;
+
+    overflow: hidden;
+
+    border-right: 1px solid #2B2607;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart {
+    position: absolute;
+
+    border: none;
+    background: transparent;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    padding: 10px;
+
+    user-select: none;
+
+    animation: floatHeart 2s ease-in-out infinite;
+
+    transition: transform 0.15s ease;
+}
+
+.heart:hover {
+    transform: scale(1.25);
+}
+
+.heart:active {
+    transform: scale(0.75);
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================
+   CHARACTER
+========================= */
+
+.character {
+    padding: 30px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.character-face {
+    font-size: 58px;
+
+    margin-bottom: 20px;
+
+    transition: transform 0.2s ease;
+}
+
+.character-face.happy {
+    transform: scale(1.15) rotate(-4deg);
+}
+
+.character-message {
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    min-height: 100px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats {
+    grid-column: 1 / -1;
+
+    padding: 22px;
+
+    border-top: 1px solid #2B2607;
+
+    text-align: center;
+}
+
+.stat-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 14px;
+
+    margin-bottom: 7px;
+}
+
+.meter {
+    width: 100%;
+
+    height: 18px;
+
+    border: 1px solid #2B2607;
+
+    background: #eee8d7;
+
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+
+    width: 0%;
+
+    background: #b56f72;
+
+    transition: width 0.25s ease;
+}
+
+.total {
+    margin-top: 10px;
+
+    font-size: 14px;
+}
+
+.hint {
+    margin-top: 8px;
+
+    font-size: 11px;
+
+    font-style: italic;
+
+    opacity: 0.7;
+}
+
+/* =========================
+   HEART POP
+========================= */
+
+.heart-pop {
+    position: absolute;
+
+    pointer-events: none;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    animation: popUp 0.8s ease forwards;
+}
+
+@keyframes popUp {
+
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-40px) scale(1.2);
+    }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .page {
+        padding: 80px 15px 40px;
+    }
+
+    .title h1 {
+        font-size: 30px;
+    }
+
+    .game-container {
+        grid-template-columns: 1fr;
+    }
+
+    .heart-field {
+        min-height: 420px;
+
+        border-right: none;
+        border-bottom: 1px solid #2B2607;
+    }
+
+    .character {
+        min-height: 180px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     MENU BUTTON
+========================= -->
+
+<button class="menu-button" id="menuButton">
+    ☰
+</button>
+
+
+<!-- =========================
+     SIDE MENU
+========================= -->
+
+<nav class="side-menu" id="sideMenu">
+
+    <a href="index.html">home</a>
+
+    <a href="miss-you.html">I miss you</a>
+
+    <a href="sad.html">I'm sad</a>
+
+    <a href="look-back.html">look back</a>
+
+    <a href="story.html">our story</a>
+
+    <br>
+
+    <div>more little things:</div>
+
+    <a href="gallery.html">gallery</a>
+
+    <a href="fun-facts.html">fun facts</a>
+
+    <a href="virtual-dates.html">virtual dates</a>
+
+    <a href="little-things.html">little things</a>
+
+    <br>
+
+    <a href="love-game.html">♡ how much?</a>
+
+</nav>
+
+
+<!-- =========================
+     PAGE
+========================= -->
+
+<main class="page">
+
+    <div class="title">
+
+        <h1>how much do I love you?</h1>
+
+        <p>
+            I don't think there's really a way to measure it...
+        </p>
+
+    </div>
+
+
+    <!-- =========================
+         GAME
+    ========================= -->
+
+    <div class="game-container">
+
+        <!-- HEART FIELD -->
+
+        <div class="heart-field" id="heartField">
+        </div>
+
+
+        <!-- CHARACTER -->
+
+        <div class="character">
+
+            <div class="character-face" id="characterFace">
+                (˶ᵔ ᵕ ᵔ˶)
+            </div>
+
+            <div class="character-message" id="characterMessage">
+
+                oh, you're playing? ♡
+
+            </div>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+            <div class="stat-title">
+
+                <span>
+                    current love
+                </span>
+
+                <span id="lovePercent">
+                    0%
+                </span>
+
+            </div>
+
+
+            <div class="meter">
+
+                <div
+                    class="meter-fill"
+                    id="meterFill">
+                </div>
+
+            </div>
+
+
+            <div class="total">
+
+                total love given:
+
+                <strong id="totalLove">
+                    0
+                </strong>
+
+                ♡
+
+            </div>
+
+
+            <div class="hint">
+
+                catch the hearts ♡
+                <br>
+                if you stop, the love slowly fades...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script>
+
+/* =========================
+   MENU
+========================= */
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const sideMenu =
+    document.getElementById("sideMenu");
+
+
+menuButton.addEventListener("click", function () {
+
+    sideMenu.classList.toggle("open");
+
+});
+
+
+/* =========================
+   GAME VARIABLES
+========================= */
+
+const heartField =
+    document.getElementById("heartField");
+
+const meterFill =
+    document.getElementById("meterFill");
+
+const lovePercent =
+    document.getElementById("lovePercent");
+
+const totalLove =
+    document.getElementById("totalLove");
+
+const characterMessage =
+    document.getElementById("characterMessage");
+
+const characterFace =
+    document.getElementById("characterFace");
+
+
+let currentLove = 0;
+
+let total = 0;
+
+let lastHeart = 0;
+
+let combo = 0;
+
+
+/* =========================
+   CHARACTER MESSAGES
+========================= */
+
+const messages = [
+
+    {
+        amount: 0,
+        text: "oh, you're playing? ♡"
+    },
+
+    {
+        amount: 10,
+        text: "hehe, thank you ♡"
+    },
+
+    {
+        amount: 25,
+        text: "more."
+    },
+
+    {
+        amount: 50,
+        text: "okayyy, I feel loved now"
+    },
+
+    {
+        amount: 75,
+        text: "wait... you're actually pretty good at this"
+    },
+
+    {
+        amount: 100,
+        text: "100% already?!"
+    },
+
+    {
+        amount: 150,
+        text: "you're really committed to this huh"
+    },
+
+    {
+        amount: 250,
+        text: "you're trying to make me blush, aren't you?"
+    },
+
+    {
+        amount: 500,
+        text: "I don't think this meter was designed for you."
+    },
+
+    {
+        amount: 1000,
+        text: "...you really do love me that much?"
+    },
+
+    {
+        amount: 5000,
+        text: "okay. this is getting ridiculous."
+    }
+
+];
+
+
+/* =========================
+   UPDATE GAME
+========================= */
+
+function updateGame() {
+
+    let percentage =
+        Math.max(
+            0,
+            Math.min(100, currentLove)
+        );
+
+
+    meterFill.style.width =
+        percentage + "%";
+
+
+    lovePercent.textContent =
+        Math.round(percentage) + "%";
+
+
+    totalLove.textContent =
+        total.toLocaleString();
+
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+function updateMessage() {
+
+    let selected =
+        messages[0].text;
+
+
+    for (let message of messages) {
+
+        if (total >= message.amount) {
+
+            selected =
+                message.text;
+
+        }
+
+    }
+
+
+    characterMessage.textContent =
+        selected;
+
+}
+
+
+/* =========================
+   CREATE HEART
+========================= */
+
+function createHeart() {
+
+    const existing =
+        heartField.querySelectorAll(".heart").length;
+
+
+    if (existing >= 8) {
+
+        return;
+
+    }
+
+
+    const heart =
+        document.createElement("button");
+
+
+    heart.className =
+        "heart";
+
+
+    heart.type =
+        "button";
+
+
+    /* Different heart values */
+
+    const random =
+        Math.random();
+
+
+    let value = 1;
+
+
+    if (random < 0.08) {
+
+        heart.textContent = "💗";
+
+        value = 50;
+
+    }
+
+    else if (random < 0.20) {
+
+        heart.textContent = "💕";
+
+        value = 5;
+
+    }
+
+    else {
+
+        heart.textContent = "♡";
+
+        value = 1;
+
+    }
+
+
+    heart.dataset.value =
+        value;
+
+
+    /* Random position */
+
+    heart.style.left =
+        (5 + Math.random() * 85) + "%";
+
+
+    heart.style.top =
+        (5 + Math.random() * 82) + "%";
+
+
+    heart.style.animationDuration =
+        (1.7 + Math.random() * 1.7) + "s";
+
+
+    heart.setAttribute(
+        "aria-label",
+        "collect heart"
+    );
+
+
+    heart.addEventListener(
+        "click",
+        function () {
+
+            collectHeart(heart);
+
+        }
+    );
+
+
+    heartField.appendChild(
+        heart
+    );
+
+}
+
+
+/* =========================
+   COLLECT HEART
+========================= */
+
+function collectHeart(heart) {
+
+    const now =
+        performance.now();
+
+
+    const clickedQuickly =
+        now - lastHeart < 500;
+
+
+    if (clickedQuickly) {
+
+        combo++;
+
+    }
+
+    else {
+
+        combo = 1;
+
+    }
+
+
+    lastHeart = now;
+
+
+    let value =
+        Number(heart.dataset.value);
+
+
+    /* Combo bonus */
+
+    if (combo >= 10) {
+
+        value *= 2;
+
+    }
+
+
+    /* Increase meter */
+
+    currentLove +=
+        Math.min(value * 0.8, 8);
+
+
+    currentLove =
+        Math.min(100, currentLove);
+
+
+    /* Increase total */
+
+    total += value;
+
+
+    updateGame();
+
+
+    updateMessage();
+
+
+    /* Happy character */
+
+    characterFace.classList.add(
+        "happy"
+    );
+
+
+    setTimeout(function () {
+
+        characterFace.classList.remove(
+            "happy"
+        );
+
+    }, 200);
+
+
+    /* Floating +value */
+
+    const pop =
+        document.createElement("span");
+
+
+    pop.className =
+        "heart-pop";
+
+
+    pop.textContent =
+        "+" + value + " ♡";
+
+
+    pop.style.left =
+        heart.offsetLeft + "px";
+
+
+    pop.style.top =
+        heart.offsetTop + "px";
+
+
+    heartField.appendChild(
+        pop
+    );
+
+
+    setTimeout(function () {
+
+        pop.remove();
+
+    }, 850);
+
+
+    /* Teasing */
+
+    if (combo >= 10) {
+
+        characterMessage.textContent =
+            "WOAH WOAH WOAH — slow down! ♡";
+
+    }
+
+    else if (combo >= 5) {
+
+        characterMessage.textContent =
+            "someone's eager...";
+
+    }
+
+
+    heart.remove();
+
+}
+
+
+/* =========================
+   LOVE DECAY
+========================= */
+
+function decayLove() {
+
+    const timeSinceHeart =
+        performance.now() - lastHeart;
+
+
+    /* Wait before decay begins */
+
+    if (timeSinceHeart < 1800) {
+
+        return;
+
+    }
+
+
+    if (currentLove > 0) {
+
+        /*
+         VERY slow decay.
+         */
+
+        currentLove -= 0.15;
+
+
+        currentLove =
+            Math.max(0, currentLove);
+
+
+        updateGame();
+
+
+        /* Sad / teasing messages */
+
+        if (currentLove <= 10) {
+
+            characterMessage.textContent =
+                "ummm excuse me? where did my love go?";
+
+        }
+
+        else if (currentLove <= 30) {
+
+            characterMessage.textContent =
+                "hey... you stopped loving me?";
+
+        }
+
+        else if (currentLove <= 55) {
+
+            characterMessage.textContent =
+                "where are you going...?";
+
+        }
+
+    }
+
+}
+
+
+/* =========================
+   START GAME
+========================= */
+
+
+/* Initial hearts */
+
+for (
+    let i = 0;
+    i < 6;
+    i++
+) {
+
+    createHeart();
+
+}
+
+
+/* Keep spawning hearts */
+
+setInterval(
+    createHeart,
+    1000
+);
+
+
+/* Slowly decrease meter */
+
+setInterval(
+    decayLove,
+    100
+);
+
+
+/* Initial display */
+
+updateGame();
+
+</script>
+
+</body>
+</html>
